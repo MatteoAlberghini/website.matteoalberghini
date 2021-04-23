@@ -1,4 +1,7 @@
 /*
- * Chakra fonts override
+ * SECTION Chakra fonts override
  */
-export const fonts = {}
+export const fonts = {
+  heading: 'Dosis',
+  body: 'Dosis',
+}
