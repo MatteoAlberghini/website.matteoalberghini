@@ -1,4 +1,4 @@
 /*
- * Chakra colors override
+ * SECTION Chakra colors override
  */
 export const colors = {}

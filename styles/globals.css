@@ -6,6 +6,38 @@
 html, body { height: 100%; margin: 0; background-color: #1E1E1E; text-rendering: optimizeLegibility; }
 #__next { height: 100%; margin: 0; background-color: #1E1E1E; text-rendering: optimizeLegibility; }
 
+/* FONTS */
+@font-face {
+    font-family: 'Dosis';   
+    src: url("/fonts/Dosis-VariableFont_wght.ttf");
+    font-weight: 100;
+}
+@font-face {
+    font-family: 'Dosis';   
+    src: url("/fonts/Dosis-VariableFont_wght.ttf");
+    font-weight: 200;
+}
+@font-face {
+    font-family: 'Dosis';   
+    src: url("/fonts/Dosis-VariableFont_wght.ttf");
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Dosis';   
+    src: url("/fonts/Dosis-VariableFont_wght.ttf");
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Dosis';   
+    src: url("/fonts/Dosis-VariableFont_wght.ttf");
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Dosis';   
+    src: url("/fonts/Dosis-VariableFont_wght.ttf");
+    font-weight: 600;
+}
+
 /* SCROLLBAR */
 /* width */
 ::-webkit-scrollbar {
@@ -30,5 +62,15 @@ html, body { height: 100%; margin: 0; background-color: #1E1E1E; text-rendering:
 ::selection {
     background-color: #7991D1 !important;
     color: #FFF !important;
+}
+  
+/* CODE BUTTON */
+.avdoods-code-button:hover::before {
+  width: 0px;
+  background: #1E1E1E;
+}
+.avdoods-code-button:hover::after {
+  height: 0px;
+  background: #1E1E1E;
 }
 
