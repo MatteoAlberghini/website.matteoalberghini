@@ -12,7 +12,7 @@ import PropTypes from 'prop-types'
 import { Flex } from '@chakra-ui/layout'
 
 // SECTION Constant export
-export const AnimatedLogo = ({ width = '0', height = '0', color = '#FFFFFF' }) => {
+export const AnimatedLogo = ({ width = '0', height = '0', color = '#FFFFFF', animated = true }) => {
   // ANCHOR Constants
   const { scrollY } = useViewportScroll()
 
@@ -25,7 +25,7 @@ export const AnimatedLogo = ({ width = '0', height = '0', color = '#FFFFFF' }) =
   return (
     <Flex onClick={scrollToTop} _hover={{ cursor: 'pointer' }}>
       <motion.svg viewBox="0 0 230.795 230.795" width={width} height={height} xmlSpace="preserve" xmlnsXlink="http://www.w3.org/1999/xlink">
-        <motion.g style={{ rotate: scrollY }}>
+        <motion.g style={{ rotate: animated ? scrollY : undefined }}>
           <motion.path
             fill={color}
             d="M60.357,63.289c-2.929-2.929-7.678-2.93-10.606-0.001L2.197,110.836C0.79,112.243,0,114.151,0,116.14

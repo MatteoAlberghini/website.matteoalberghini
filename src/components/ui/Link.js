@@ -9,14 +9,30 @@ import { fontS18L15S2W3 } from '../../constants/font-sizes'
 // Chakra UI
 import { Link } from '@chakra-ui/layout'
 // Framer motion
-import { motion } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion'
+import React from 'react'
 
 // SECTION File variables
 // Motion overrides
 const MotionLink = motion(Link)
 
 // SECTION Main function
-function AverageDoodsLink({ color = '#FFFFFF', text = '', ms = ['0px'], mt = ['0px'], onClick = () => {}, reverted = false}) {
+function AverageDoodsLink({
+  selected = false,
+  animated = true,
+  w = ['auto'],
+  color = '#FFFFFF',
+  text = '',
+  ms = ['0px'],
+  mt = ['0px'],
+  onClick = () => {},
+  reverted = false,
+  fontSize= [fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size],
+  lineHeight= fontS18L15S2W3.lineHeight,
+  letterSpacing= fontS18L15S2W3.letterSpacing,
+  fontWeight = '300',
+  alignSelf = 'center',
+}) {
   // ANCHOR Constants
   // Variants
   const spanVariants = {
@@ -30,19 +46,22 @@ function AverageDoodsLink({ color = '#FFFFFF', text = '', ms = ['0px'], mt = ['0
       position="relative"
       initial="rest"
       animate="rest"
-      w="auto"
+      w={w}
+      h="min-content"
       whiteSpace="nowrap"
       _hover={{
         cursor: 'pointer',
       }}
-      whileHover={'hover'}
-      whileTap={'hover'}
+      whileHover={animated ? 'hover' : ''}
+      whileTap={animated ? 'hover' : ''}
       onClick={onClick}
       color={color}
-      fontSize={[fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size]}
-      lineHeight={fontS18L15S2W3.lineHeight}
-      letterSpacing={fontS18L15S2W3.letterSpacing}
+      fontSize={fontSize}
+      lineHeight={lineHeight}
+      letterSpacing={letterSpacing}
+      fontWeight={fontWeight}
       boxShadow="none"
+      alignSelf={alignSelf}
       ms={ms}
       mt={mt}
     >
@@ -50,10 +69,11 @@ function AverageDoodsLink({ color = '#FFFFFF', text = '', ms = ['0px'], mt = ['0
       <motion.span
         style={{
           position: 'absolute',
-          height: '0.5px',
+          height: '100%',
           background: color,
-          top: '100%',
+          top: '0%',
           left: 0,
+          opacity: 0.5,
         }}
         variants={spanVariants}
       ></motion.span>
@@ -64,8 +84,13 @@ function AverageDoodsLink({ color = '#FFFFFF', text = '', ms = ['0px'], mt = ['0
 // SECTION Export & Prop types
 AverageDoodsLink.propTypes = {
   ms: PropTypes.array,
+  mt: PropTypes.array,
+  w: PropTypes.array,
   color: PropTypes.string,
   text: PropTypes.string,
   onClick: PropTypes.func,
+  animated: PropTypes.bool,
+  selected: PropTypes.bool,
+  reverted: PropTypes.bool,
 }
 export default AverageDoodsLink

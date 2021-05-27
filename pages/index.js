@@ -1,5 +1,5 @@
 /*
- * [PAGE] Index page at averagedoods.dev
+ * [PAGE] Index page at /
  */
 // SECTION Imports
 // Next
@@ -7,7 +7,6 @@ import Head from 'next/head'
 // React
 import { Component } from 'react'
 // Chakra UI
-import { Img } from '@chakra-ui/image'
 import { Flex, Text } from '@chakra-ui/layout'
 // Cookies
 import cookies from 'next-cookies'
@@ -17,16 +16,18 @@ import PropTypes from 'prop-types'
 import { themes } from '../src/constants/themes'
 import { fontS65H13S2W3, fontS18L15S2W3 } from '../src/constants/font-sizes'
 import { TabletAndDesktop } from '../src/constants/responsive'
-import { projectMobile, projectWebsites } from '../src/constants/projects'
+import { projectMobile, projectWebsites, projectsMiscellaneous, projectsScripts } from '../src/constants/projects'
 // Contexts
 import ApplicationContext from '../src/contexts/ApplicationContext'
-// Scrollable view
-import ScrollContainer from 'react-indiana-drag-scroll'
 // UI
 import Header from '../src/components/macro/Header'
 import AverageDoodsLink from '../src/components/ui/Link'
 import { ScrollDownArrow } from '../src/components/ui/DownArrow'
 import { CodeButton } from '../src/components/ui/CodeButton'
+import HomeProjects from '../src/components/ui/HomeProjects'
+import PersonalProjects from '../src/components/ui/PersonalProjects'
+import ScriptsNRepositories from '../src/components/ui/ScriptsNRepositories'
+import Footer from '../src/components/macro/Footer'
 
 // SECTION Main class
 class Home extends Component {
@@ -36,6 +37,37 @@ class Home extends Component {
     const { theme } = props
     this.state = {
       theme,
+      headerButtonsShown: false,
+    }
+  }
+
+  // ANCHOR Override
+  // Mount
+  componentDidMount() {
+    window.addEventListener('scroll', this.scrolling)
+  }
+  // Unmount
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.scrolling)
+  }
+  // Scroll callback
+  scrolling = () => {
+    // Init constants
+    let offset = 0
+    if (this.headerRef !== null && this.headerRef !== undefined) {
+      offset = this.headerRef.offsetTop
+    }
+    const { headerButtonsShown } = this.state
+    if (window.pageYOffset > offset) {
+      // Header is sticky
+      if (!headerButtonsShown) {
+        this.setState({ headerButtonsShown: true })
+      }
+    } else {
+      // Header not sticky
+      if (headerButtonsShown) {
+        this.setState({ headerButtonsShown: false })
+      }
     }
   }
 
@@ -57,7 +89,7 @@ class Home extends Component {
     window.open('https://www.genuino.world', '_blank')
   }
   // Navigate down from home
-  navigateDownFromHome = () => {
+  navigateAllProjects = () => {
     if (this.portfolioRef) this.portfolioRef.scrollIntoView({ behavior: 'smooth' })
   }
   // Navigate to web projects
@@ -72,6 +104,18 @@ class Home extends Component {
   navigateToProjectsMisc = () => {
     if (this.miscRef) this.miscRef.scrollIntoView({ behavior: 'smooth' })
   }
+  // Navigate to personal projects
+  navigateToPersonalProjects = () => {
+    if (this.personalProjectsRef) this.personalProjectsRef.scrollIntoView({ behavior: 'smooth' })
+  }
+  // Navigate to scripts
+  navigateToScripts = () => {
+    if (this.scriptsRef) this.scriptsRef.scrollIntoView({ behavior: 'smooth' })
+  }
+  // Navigate to contacts
+  navigateContacts = () => {
+    if (this.footerRef) this.footerRef.scrollIntoView({ behavior: 'smooth' })
+  }
   // Open project on blank
   openProjectURL = (url) => {
     window.open(url, '_blank')
@@ -80,7 +124,7 @@ class Home extends Component {
   // ANCHOR Render
   render() {
     // Constants
-    const { theme } = this.state
+    const { theme, headerButtonsShown } = this.state
 
     // Return statement
     return (
@@ -96,12 +140,18 @@ class Home extends Component {
         </Head>
 
         {/* HEADER */}
-        <Header theme={theme} />
+        <Header
+          handleRef={(ref) => (this.headerRef = ref)}
+          theme={theme}
+          animated={headerButtonsShown}
+          contactFunction={this.navigateContacts}
+          projectsFunction={this.navigateAllProjects}
+        />
 
         {/* BODY */}
-        <Flex minH="100vh" alignSelf="center" w="100%" justify="center" flexDir="column" paddingTop={['43px', '43px', '43px', '0px']}>
+        <Flex minH="100vh" alignSelf="center" w="100%" justify="center" flexDir="column" paddingTop={['43px', '43px', '43px', '0']}>
           {/* Text section & Buttons */}
-          <Flex flexDir="column" maxW="900px" alignSelf="center" justify="center">
+          <Flex flexDir="column" maxW="1300px" w="94%" alignSelf="center" justify="center">
             {/* Title */}
             <Text
               fontSize={[fontS65H13S2W3.sizeMobile, fontS65H13S2W3.sizeMobile, fontS65H13S2W3.size]}
@@ -112,6 +162,7 @@ class Home extends Component {
               w={['94%', '94%', '94%', '100%']}
               ms={['16px', '16px', '16px', '0%']}
               me={['16px', '16px', '16px', '0%']}
+              alignSelf="center"
             >
               Hello, I'm Matteo Alberghini :)
             </Text>
@@ -133,14 +184,14 @@ class Home extends Component {
             </Text>
             {/* Button / link to portfolio */}
             <Flex flexDir={['column', 'column', 'row']} justify="space-between" w="96%" mt="32px">
-              <CodeButton text="Learn more about my tech stack" onClick={this.navigateDownFromHome} />
-              <CodeButton text="Check out some of my work" onClick={this.navigateDownFromHome} mt={['24px', '24px', '0px']} />
+              <CodeButton text="Learn more about my tech stack" onClick={this.navigateAllProjects} />
+              <CodeButton text="Check out some of my work" onClick={this.navigateAllProjects} mt={['24px', '24px', '0px']} />
             </Flex>
           </Flex>
 
           {/* Scroll down bar, if user clicks on entire bar it will scroll down */}
           <TabletAndDesktop>
-            <ScrollDownArrow width="30" height="30" onClick={this.navigateDownFromHome} />
+            <ScrollDownArrow width="30" height="30" onClick={this.navigateAllProjects} />
           </TabletAndDesktop>
         </Flex>
 
@@ -153,9 +204,10 @@ class Home extends Component {
           flexDir="column"
           ref={(ref) => (this.portfolioRef = ref)}
           paddingTop={['62px', '62px', '144px']}
+          paddingBottom={['62px', '62px', '144px']}
         >
-          {/* Web */}
-          <Flex flexDir="column" maxW="900px" w="100%" alignSelf="center" justify="center" ref={(ref) => (this.webRef = ref)}>
+          {/* Projects title */}
+          <Flex flexDir="column" maxW="1300px" w="100%" alignSelf="center" justify="center">
             <Text
               fontSize={[fontS65H13S2W3.sizeMobile, fontS65H13S2W3.sizeMobile, fontS65H13S2W3.size]}
               letterSpacing={fontS65H13S2W3.letterSpacing}
@@ -166,7 +218,7 @@ class Home extends Component {
               ms={['16px', '16px', '16px', '0%']}
               me={['16px', '16px', '16px', '0%']}
             >
-              My projects portfolio
+              Works && Personal Projects
             </Text>
             <Text
               fontSize={[fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size]}
@@ -180,127 +232,66 @@ class Home extends Component {
               me={['16px', '16px', '16px', '0%']}
             >
               JUMP TO: <AverageDoodsLink reverted={false} text="Websites" color={theme.textSecondary} onClick={this.navigateToProjectsWeb} /> //{' '}
-              <AverageDoodsLink reverted={false} text="Mobile apps" color={theme.textSecondary} onClick={this.navigateToProjectsMobile} /> //{' '}
-              <AverageDoodsLink reverted={false} text="Miscellaneous" color={theme.textSecondary} onClick={this.navigateToProjectsMisc} />
-            </Text>
-            <Text
-              fontSize={['22px', '22px', '30px']}
-              letterSpacing={fontS65H13S2W3.letterSpacing}
-              fontWeight={fontS65H13S2W3.weight}
-              lineHeight={[fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight]}
-              color={theme.textPrimary}
-              mt="32px"
-              w={['94%', '94%', '94%', '100%']}
-              ms={['16px', '16px', '16px', '0%']}
-              me={['16px', '16px', '16px', '0%']}
-            >
-              [ Websites ]
-            </Text>
-            <Text
-              fontSize={[fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size]}
-              letterSpacing={fontS18L15S2W3.letterSpacing}
-              fontWeight={fontS18L15S2W3.weight}
-              lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
-              color={theme.textSecondary}
-              mt="16px"
-              w={['94%', '94%', '94%', '100%']}
-              ms={['16px', '16px', '16px', '0%']}
-              me={['16px', '16px', '16px', '0%']}
-            >
-              A sample size of the websites I worked on. Using Wordpress, React, Node & Django. Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry.
+              <AverageDoodsLink reverted={false} text="Mobile Apps" color={theme.textSecondary} onClick={this.navigateToProjectsMobile} /> //{' '}
+              <AverageDoodsLink reverted={false} text="Personal Projects" color={theme.textSecondary} onClick={this.navigateToPersonalProjects} /> //{' '}
+              <AverageDoodsLink reverted={false} text="Scripts && Repositories" color={theme.textSecondary} onClick={this.navigateToScripts} />
             </Text>
           </Flex>
 
-          <ScrollContainer horizontal={true} vertical={false}>
-            <Flex flexDir="row" alignSelf="center" mt="47px" cursor="grab">
-              {projectWebsites.map((e) => (
-                <Img
-                  key={e.id}
-                  src={e.image}
-                  ms={['32px']}
-                  height={['150px', '150px', '300px']}
-                  onClick={() => this.openProjectURL(e.url)}
-                  _hover={{ cursor: 'pointer' }}
-                />
-              ))}
-            </Flex>
-          </ScrollContainer>
+          {/* Web */}
+          <HomeProjects
+            projects={projectWebsites}
+            theme={theme}
+            setRef={(ref) => (this.webRef = ref)}
+            title={'< Websites />'}
+            description={
+              'A sample size of the websites I worked on. Using Wordpress, React, Node & Django. Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+            }
+            mt={['128px']}
+            height={['340px']}
+          />
 
           {/* Mobile */}
-          <Flex flexDir="column" maxW="900px" w="100%" alignSelf="center" justify="center" mt="64px" ref={(ref) => (this.mobileRef = ref)}>
-            <Text
-              fontSize={['17px', '17px', '30px']}
-              letterSpacing={fontS65H13S2W3.letterSpacing}
-              fontWeight={fontS65H13S2W3.weight}
-              lineHeight={[fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight]}
-              color={theme.textPrimary}
-              w={['94%', '94%', '94%', '100%']}
-              ms={['16px', '16px', '16px', '0%']}
-              me={['16px', '16px', '16px', '0%']}
-            >
-              [ Mobile Apps ]
-            </Text>
-            <Text
-              fontSize={[fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size]}
-              letterSpacing={fontS18L15S2W3.letterSpacing}
-              fontWeight={fontS18L15S2W3.weight}
-              lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
-              color={theme.textSecondary}
-              mt="16px"
-              w={['94%', '94%', '94%', '100%']}
-              ms={['16px', '16px', '16px', '0%']}
-              me={['16px', '16px', '16px', '0%']}
-            >
-              Some of the apps I made. I can work on native android & ios, using kotlin, java, swift or objc. I've also knoledge of different
-              frameworks such as React, Xamarin & Flutter.
-            </Text>
-          </Flex>
-          <ScrollContainer horizontal={true} vertical={false}>
-            <Flex flexDir="row" alignSelf="center" mt="47px" cursor="grab" mb="32px">
-              {projectMobile.map((e) => (
-                <Img
-                  key={e.id}
-                  src={e.image}
-                  height={['150px', '150px', '400px']}
-                  ms={['80px']}
-                  onClick={() => this.openProjectURL(e.url)}
-                  _hover={{ cursor: 'pointer' }}
-                />
-              ))}
-            </Flex>
-          </ScrollContainer>
+          <HomeProjects
+            projects={projectMobile}
+            theme={theme}
+            setRef={(ref) => (this.mobileRef = ref)}
+            title={'< Mobile Apps />'}
+            description={
+              "Some of the apps I made. I can work on native android & ios, using kotlin, java, swift or objc. I've also knoledge of different frameworks such as React, Xamarin & Flutter."
+            }
+            height={['420px']}
+            mt={['128px']}
+            imageMr={['120px']}
+          />
 
-          {/* Misc */}
-          <Flex flexDir="column" maxW="900px" w="100%" alignSelf="center" justify="center" mt="64px" ref={(ref) => (this.miscRef = ref)}>
-            <Text
-              fontSize={['17px', '17px', '30px']}
-              letterSpacing={fontS65H13S2W3.letterSpacing}
-              fontWeight={fontS65H13S2W3.weight}
-              lineHeight={[fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight]}
-              color={theme.textPrimary}
-              w={['94%', '94%', '94%', '100%']}
-              ms={['16px', '16px', '16px', '0%']}
-              me={['16px', '16px', '16px', '0%']}
-            >
-              [ Miscellaneous ]
-            </Text>
-            <Text
-              fontSize={[fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size]}
-              letterSpacing={fontS18L15S2W3.letterSpacing}
-              fontWeight={fontS18L15S2W3.weight}
-              lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
-              color={theme.textSecondary}
-              mt="16px"
-              w={['94%', '94%', '94%', '100%']}
-              ms={['16px', '16px', '16px', '0%']}
-              me={['16px', '16px', '16px', '0%']}
-            >
-              Different projects and code examples or challenges. Links go to my personal github account, for more info feel free to contact me in
-              private.
-            </Text>
-          </Flex>
+          {/* Personal Projects */}
+          <PersonalProjects
+            projects={projectsMiscellaneous}
+            theme={theme}
+            setRef={(ref) => (this.personalProjectsRef = ref)}
+            title={'< Personal Projects />'}
+            description={
+              "Some of the apps I made. I can work on native android & ios, using kotlin, java, swift or objc. I've also knoledge of different frameworks such as React, Xamarin & Flutter."
+            }
+            mt={['128px']}
+          />
+
+          {/* Scripts & Repositories */}
+          <ScriptsNRepositories
+            projects={projectsScripts}
+            theme={theme}
+            setRef={(ref) => (this.scriptsRef = ref)}
+            title={'< Scripts && Repositories />'}
+            description={
+              "Some of the apps I made. I can work on native android & ios, using kotlin, java, swift or objc. I've also knoledge of different frameworks such as React, Xamarin & Flutter."
+            }
+            mt={['128px']}
+          />
         </Flex>
+
+        {/* FOOTER */}
+        <Footer theme={theme} footerRef={(ref) => (this.footerRef = ref)} />
       </Flex>
     )
   }
