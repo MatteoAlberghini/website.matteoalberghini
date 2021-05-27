@@ -4,16 +4,14 @@
 // SECTION Imports
 // React
 import * as React from 'react'
-// Framer motion
-import { motion, useViewportScroll } from 'framer-motion'
-import { fontS20H16L15W3, textFontSubtitle, fontS16L15S2W3 } from '../../constants/font-sizes'
-import { Flex, Text } from '@chakra-ui/layout'
+// Constants
+import { fontS16L15S2W3 } from '../../constants/font-sizes'
 // Prop types
 import PropTypes from 'prop-types'
 import { Button } from '@chakra-ui/button'
 
 // SECTION Constant export
-export const CodeButton = ({ text = '', color = '#FFFFFF', onClick = () => {}, mt = ['0px'] }) => {
+export const CodeButton = ({ text = '', color = '#FFFFFF', onClick = () => {}, mt = ['0px'], mb = ['0px'] }) => {
   // ANCHOR Return statement
   return (
     <Button
@@ -29,13 +27,14 @@ export const CodeButton = ({ text = '', color = '#FFFFFF', onClick = () => {}, m
       ms={['16px', '16px', '16px', '0px']}
       me={['16px', '16px', '16px', '0px']}
       mt={mt}
-      background="transparent"
+      mb={mb}
+      background="#181818"
       _hover={{
-        background: '#1E1E1E',
+        background: '#181818',
       }}
       _before={{
         position: 'absolute',
-        background: '#1E1E1E',
+        background: '#181818',
         zIndex: '-1',
         transition: '0.8s',
         content: "''",
@@ -44,7 +43,7 @@ export const CodeButton = ({ text = '', color = '#FFFFFF', onClick = () => {}, m
       }}
       _after={{
         position: 'absolute',
-        background: '#1E1E1E',
+        background: '#181818',
         zIndex: '-1',
         transition: '0.8s',
         content: "''",
@@ -52,9 +51,11 @@ export const CodeButton = ({ text = '', color = '#FFFFFF', onClick = () => {}, m
         height: '30px',
       }}
       _focus={{
+        background: '#181818',
         boxShadow: 'none',
       }}
       _active={{
+        background: '#181818',
         boxShadow: 'none',
       }}
       onClick={onClick}

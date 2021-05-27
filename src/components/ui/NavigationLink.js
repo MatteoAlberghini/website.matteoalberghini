@@ -51,10 +51,11 @@ function NavigationLink({ color = '#FFFFFF', text = '', ms = ['0px'], onClick = 
       <motion.span
         style={{
           position: 'absolute',
-          height: '0.5px',
+          height: '100%',
           background: color,
-          top: '100%',
+          top: '0%',
           left: 0,
+          opacity: 0.5,
         }}
         variants={spanVariants}
       ></motion.span>

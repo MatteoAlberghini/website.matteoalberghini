@@ -44,6 +44,12 @@ Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())
 
 // SECTION Main class
+/*
+ * Entry point of the App:
+ * FEATURES:
+ *  - Handles theme from cookies
+ *  - Starts and handles react context with react memo
+ */
 function MyApp({ Component, pageProps }) {
   // ANCHOR Constants
   const [currentTheme, setCurrentTheme] = React.useState(Cookies.get('theme') ? Cookies.get('theme') : themes.standard)

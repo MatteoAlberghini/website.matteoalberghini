@@ -19,8 +19,8 @@ export const ThemeChangeButton = ({ theme = themes.standard, onClick = () => {},
   // ANCHOR Return statement
   return (
     <Button
-      width="40px"
-      height="40px"
+      width="43px"
+      height="43px"
       border={'1px solid ' + theme.textPrimary}
       cursor="pointer"
       align="center"
@@ -30,33 +30,38 @@ export const ThemeChangeButton = ({ theme = themes.standard, onClick = () => {},
       borderRadius="0px"
       padding="0"
       ms={ms}
-      background="#1E1E1E"
+      background="#1B1B1B"
       _hover={{
-        background: '#1E1E1E',
+        background: '#1B1B1B',
       }}
       _before={{
         position: 'absolute',
-        background: '#1E1E1E',
+        background: '#1B1B1B',
         zIndex: '-1',
         transition: '0.8s',
         content: "''",
-        height: '40px',
-        width: '20px',
+        height: '43px',
+        width: '21.5px',
       }}
       _after={{
         position: 'absolute',
-        background: '#1E1E1E',
+        background: '#1B1B1B',
         zIndex: '-1',
         transition: '0.8s',
         content: "''",
-        width: '40px',
-        height: '25px',
+        width: '43px',
+        height: '20px',
       }}
-      _focus={{}}
+      _focus={{
+        boxShadow: 'none',
+      }}
+      _active={{
+        boxShadow: 'none',
+      }}
       onClick={onClick}
       className="avdoods-code-button"
     >
-      {theme.name === 'standard' && <Img src="/images/logo-code.svg" width="25px" />}
+      {theme.name === 'standard' && <Img src="/images/logo-code.svg" width="30px" />}
     </Button>
   )
 }

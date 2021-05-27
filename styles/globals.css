@@ -3,8 +3,8 @@
 
 /* MACRO ELEMENTS */
 /* General */
-html, body { height: 100%; margin: 0; background-color: #1E1E1E; text-rendering: optimizeLegibility; }
-#__next { height: 100%; margin: 0; background-color: #1E1E1E; text-rendering: optimizeLegibility; }
+html, body { height: 100%; margin: 0; background-color: #181818; text-rendering: optimizeLegibility; }
+#__next { height: 100%; margin: 0; background-color: #181818; text-rendering: optimizeLegibility; }
 
 /* FONTS */
 @font-face {
@@ -45,12 +45,15 @@ html, body { height: 100%; margin: 0; background-color: #1E1E1E; text-rendering:
 }
 /* Track */
 ::-webkit-scrollbar-track {
-    background: transparent;
+    background: #1E1E1E;
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #3D3D3F;
+    background: #303436;
     border-radius: 0px;
+}
+::-webkit-scrollbar-corner {
+    background-color: #111213;
 }
 
 /* NS PROGRESS BAR */
@@ -67,10 +70,10 @@ html, body { height: 100%; margin: 0; background-color: #1E1E1E; text-rendering:
 /* CODE BUTTON */
 .avdoods-code-button:hover::before {
   width: 0px;
-  background: #1E1E1E;
+  background: #191919;
 }
 .avdoods-code-button:hover::after {
   height: 0px;
-  background: #1E1E1E;
+  background: #191919;
 }
 
