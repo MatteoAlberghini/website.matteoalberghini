@@ -247,8 +247,8 @@ class Home extends Component {
             description={
               'A sample size of the websites I worked on. Using Wordpress, React, Node & Django. Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
             }
-            mt={['128px']}
-            height={['340px']}
+            mt={['70px', '70px', '128px']}
+            height={['250px', '250px', '340px']}
           />
 
           {/* Mobile */}
@@ -260,8 +260,8 @@ class Home extends Component {
             description={
               "Some of the apps I made. I can work on native android & ios, using kotlin, java, swift or objc. I've also knoledge of different frameworks such as React, Xamarin & Flutter."
             }
-            height={['420px']}
-            mt={['128px']}
+            height={['280px', '280px', '440px']}
+            mt={['70px', '70px', '128px']}
             imageMr={['120px']}
           />
 
@@ -274,7 +274,7 @@ class Home extends Component {
             description={
               "Some of the apps I made. I can work on native android & ios, using kotlin, java, swift or objc. I've also knoledge of different frameworks such as React, Xamarin & Flutter."
             }
-            mt={['128px']}
+            mt={['70px', '70px', '128px']}
           />
 
           {/* Scripts & Repositories */}
@@ -286,7 +286,7 @@ class Home extends Component {
             description={
               "Some of the apps I made. I can work on native android & ios, using kotlin, java, swift or objc. I've also knoledge of different frameworks such as React, Xamarin & Flutter."
             }
-            mt={['128px']}
+            mt={['70px', '70px', '128px']}
           />
         </Flex>
 

@@ -32,6 +32,8 @@ function AverageDoodsLink({
   letterSpacing= fontS18L15S2W3.letterSpacing,
   fontWeight = '300',
   alignSelf = 'center',
+  wordBreak = undefined,
+  flex = undefined,
 }) {
   // ANCHOR Constants
   // Variants
@@ -47,6 +49,7 @@ function AverageDoodsLink({
       initial="rest"
       animate="rest"
       w={w}
+      maxW={w}
       h="min-content"
       whiteSpace="nowrap"
       _hover={{
@@ -64,6 +67,8 @@ function AverageDoodsLink({
       alignSelf={alignSelf}
       ms={ms}
       mt={mt}
+      wordBreak={wordBreak}
+      flex={flex}
     >
       {text}
       <motion.span

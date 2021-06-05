@@ -10,9 +10,10 @@ import { Flex, Text } from '@chakra-ui/layout'
 // Prop types
 import PropTypes from 'prop-types'
 // Constants
-import { fontS65H13S2W3, fontS18L15S2W3 } from '../../constants/font-sizes'
+import { fontS65H13S2W3, fontS18L15S2W3, fontS35L13S2W3 } from '../../constants/font-sizes'
 // UI
 import AverageDoodsLink from './Link'
+import { Desktop } from '../../constants/responsive'
 
 // SECTION Main function
 function HomeProjects({
@@ -40,10 +41,10 @@ function HomeProjects({
   return (
     <Flex flexDir="column" maxW="1300px" w="100%" alignSelf="center" pt={mt} justify="center" ref={(ref) => setRef(ref)}>
       <Text
-        fontSize={['22px', '22px', '35px']}
-        letterSpacing={fontS65H13S2W3.letterSpacing}
-        fontWeight={fontS65H13S2W3.weight}
-        lineHeight={[fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight]}
+        fontSize={[fontS35L13S2W3.sizeMobile, fontS35L13S2W3.sizeMobile, fontS35L13S2W3.size]}
+        letterSpacing={fontS35L13S2W3.letterSpacing}
+        fontWeight={fontS35L13S2W3.weight}
+        lineHeight={[fontS35L13S2W3.lineHeight, fontS35L13S2W3.lineHeight, fontS35L13S2W3.lineHeight]}
         color={theme.textPrimary}
         w={['94%', '94%', '94%', '100%']}
         ms={['16px', '16px', '16px', '0%']}
@@ -66,38 +67,35 @@ function HomeProjects({
       </Text>
 
       <Flex
-        flexDir={'row'}
+        flexDir={['column', 'column', 'row']}
         w="100%"
         justify="space-between"
-        mt="55px"
-        backgroundImage="linear-gradient(#FFFFFF, #FFFFFF), linear-gradient(#FFFFFF, #FFFFFF), linear-gradient(#FFFFFF, #FFFFFF), linear-gradient(#FFFFFF, #FFFFFF);"
-        backgroundRepeat="no-repeat"
-        backgroundSize="8px 1px"
-        backgroundPosition="top left, bottom left"
-        border="solid #FFFFFF"
-        borderWidth="0 1px"
+        mt={['20px', '20px', '55px']}
         padding="10px"
         paddingStart="24px"
         paddingEnd="24px"
       >
         <Flex flex="1" justify="center" align="center">
+          <Desktop>
+            <Image
+              onClick={() => openProjectURL(projects[selectedIndex].url)}
+              position="absolute"
+              _hover={{ cursor: 'pointer' }}
+              mr={imageMr}
+              src={projects[0].baseImage}
+              maxH={height}
+              alignSelf="center"
+            />
+          </Desktop>
           <Image
             onClick={() => openProjectURL(projects[selectedIndex].url)}
-            position="absolute"
             _hover={{ cursor: 'pointer' }}
-            mr={imageMr}
-            src={projects[0].baseImage}
-            height={height}
-          />
-          <Image
-            onClick={() => openProjectURL(projects[selectedIndex].url)}
-            _hover={{ cursor: 'pointer' }}
-            mr={imageMr}
+            mr={['0px', '0px', imageMr]}
             src={projects[selectedIndex].image}
-            height={height}
+            maxH={height}
           />
         </Flex>
-        <Flex flexDir="column" align="flex-end" mr="20px">
+        <Flex flexDir="column" align={['flex-start', 'flex-start', 'flex-end']} mr="20px" mt={['30px', '30px', '0px']}>
           <Text
             fontSize={[fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size]}
             letterSpacing={fontS18L15S2W3.letterSpacing}
@@ -106,13 +104,13 @@ function HomeProjects({
             color={theme.textSecondary}
             w={['94%', '94%', '94%', '100%']}
             textTransform="uppercase"
-            textAlign="right"
+            textAlign={['left', 'left', 'right']}
           >
             Select a project
           </Text>
-          <Flex flexDir="column" mt="10px" align="flex-end">
+          <Flex flexDir="column" mt={['10px']} align={['flex-end']}>
             {projects.map((e, index) => (
-              <Flex flexDir="row" justify="flex-end" w="100%" align="center" key={e.id}>
+              <Flex flexDir="row" justify={['flex-start', 'flex-start', 'flex-end']} w="100%" align="center" key={e.id}>
                 <AverageDoodsLink
                   selected={index === selectedIndex}
                   w="min-content"

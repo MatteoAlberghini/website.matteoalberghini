@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 // Constants
 import { themes } from '../../constants/themes'
 import { Default, Desktop, Mobile } from '../../constants/responsive'
-import { fontS20H16L15W3, textFontSubtitle, textFontNav, fontS18L15S2W3 } from '../../constants/font-sizes'
+import { fontS20H16L15W3, textFontSubtitle, textFontNav, fontS18L15S2W3, fontS17L15S2W3 } from '../../constants/font-sizes'
 // Chakra UI
 import { Link } from '@chakra-ui/layout'
 // UI
@@ -59,7 +59,7 @@ function Footer({ theme = themes.standard, footerRef = () => {} }) {
           onClick={jumpTop}
         />
       </Flex>
-      <Flex justify="space-between" w="100%" mt="10px">
+      <Flex justify="space-between" w="100%" mt="10px" flexDir={['column', 'column', 'row']}>
         <Text
           fontSize={[fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size]}
           letterSpacing={fontS18L15S2W3.letterSpacing}
@@ -73,43 +73,45 @@ function Footer({ theme = themes.standard, footerRef = () => {} }) {
         </Text>
         <Text
           flex="1"
-          alignSelf="flex-end"
-          textAlign="right"
-          fontSize={['17px']}
-          letterSpacing={fontS18L15S2W3.letterSpacing}
-          fontWeight={fontS18L15S2W3.weight}
-          lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
+          alignSelf={['flex-start', 'flex-start', 'flex-end']}
+          textAlign={['left', 'left', 'right']}
+          mt={['15px', '15px', '0px']}
+          fontSize={[fontS17L15S2W3.sizeMobile, fontS17L15S2W3.sizeMobile, fontS17L15S2W3.size]}
+          letterSpacing={fontS17L15S2W3.letterSpacing}
+          fontWeight={fontS17L15S2W3.weight}
+          lineHeight={[fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight]}
           color={theme.textSecondary}
+          wordBreak="break-word"
         >
           <AverageDoodsLink
-            fontSize={['17px']}
-            letterSpacing={fontS18L15S2W3.letterSpacing}
-            fontWeight={fontS18L15S2W3.weight}
-            lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
+            fontSize={[fontS17L15S2W3.sizeMobile, fontS17L15S2W3.sizeMobile, fontS17L15S2W3.size]}
+            letterSpacing={fontS17L15S2W3.letterSpacing}
+            fontWeight={fontS17L15S2W3.weight}
+            lineHeight={[fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight]}
             color={theme.textSecondary}
             text="Privacy Policy "
           />
-          //
+          {'//'}
           <AverageDoodsLink
-            fontSize={['17px']}
-            letterSpacing={fontS18L15S2W3.letterSpacing}
-            fontWeight={fontS18L15S2W3.weight}
-            lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
+            fontSize={[fontS17L15S2W3.sizeMobile, fontS17L15S2W3.sizeMobile, fontS17L15S2W3.size]}
+            letterSpacing={fontS17L15S2W3.letterSpacing}
+            fontWeight={fontS17L15S2W3.weight}
+            lineHeight={[fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight]}
             color={theme.textSecondary}
             text=" Cookie Policy "
           />
-          //
+          {'//'}
           <AverageDoodsLink
-            fontSize={['17px']}
-            letterSpacing={fontS18L15S2W3.letterSpacing}
-            fontWeight={fontS18L15S2W3.weight}
-            lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
+            fontSize={[fontS17L15S2W3.sizeMobile, fontS17L15S2W3.sizeMobile, fontS17L15S2W3.size]}
+            letterSpacing={fontS17L15S2W3.letterSpacing}
+            fontWeight={fontS17L15S2W3.weight}
+            lineHeight={[fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight]}
             color={theme.textSecondary}
             text=" Thank me with a Book :) "
           />
         </Text>
       </Flex>
-      <Flex flexDir="row" mt="2px" w="100%" alignSelf="center" justify="center" align="center" alignItems="center">
+      <Flex flexDir="row" mt={['15px', '15px', '2px']} w="100%" alignSelf="center" justify="center" align="center" alignItems="center">
         <Text
           fontSize={[fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size]}
           letterSpacing={fontS18L15S2W3.letterSpacing}
@@ -128,7 +130,7 @@ function Footer({ theme = themes.standard, footerRef = () => {} }) {
             color={theme.textPrimary}
             alignSelf="flex-start"
           />
-          {' '}//{' '}
+          {' // '}
           <AverageDoodsLink
             text="alberghini.matteo.96@gmail.com"
             fontSize={[fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size]}
@@ -140,62 +142,62 @@ function Footer({ theme = themes.standard, footerRef = () => {} }) {
           />
         </Text>
       </Flex>
-      <Flex flexDir="row" mt="24px" w="100%" alignSelf="center" justify="center" align="center" alignItems="center">
+      <Flex flexDir="row" mt={['20px', '20px', '24px']} w="100%" alignSelf="center" justify="center" align="center" alignItems="center">
         <Text
           flex="1"
-          fontSize={['17px']}
-          letterSpacing={fontS18L15S2W3.letterSpacing}
-          fontWeight={fontS18L15S2W3.weight}
-          lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
+          fontSize={[fontS17L15S2W3.sizeMobile, fontS17L15S2W3.sizeMobile, fontS17L15S2W3.size]}
+          letterSpacing={fontS17L15S2W3.letterSpacing}
+          fontWeight={fontS17L15S2W3.weight}
+          lineHeight={[fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight]}
           color={theme.textSecondary}
-          textAlign="center"
+          textAlign={['left', 'left', 'center']}
         >
           *{' '}
           <AverageDoodsLink
-            fontSize={['17px']}
-            letterSpacing={fontS18L15S2W3.letterSpacing}
-            fontWeight={fontS18L15S2W3.weight}
-            lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
+            fontSize={[fontS17L15S2W3.sizeMobile, fontS17L15S2W3.sizeMobile, fontS17L15S2W3.size]}
+            letterSpacing={fontS17L15S2W3.letterSpacing}
+            fontWeight={fontS17L15S2W3.weight}
+            lineHeight={[fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight]}
             color={theme.textSecondary}
             text="TWITTER"
-          />
-          {' '}*{' '}
+          />{' '}
+          *{' '}
           <AverageDoodsLink
-            fontSize={['17px']}
-            letterSpacing={fontS18L15S2W3.letterSpacing}
-            fontWeight={fontS18L15S2W3.weight}
-            lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
+            fontSize={[fontS17L15S2W3.sizeMobile, fontS17L15S2W3.sizeMobile, fontS17L15S2W3.size]}
+            letterSpacing={fontS17L15S2W3.letterSpacing}
+            fontWeight={fontS17L15S2W3.weight}
+            lineHeight={[fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight]}
             color={theme.textSecondary}
             text="LIKEDIN"
-          />
-          {' '}*{' '}
+          />{' '}
+          *{' '}
           <AverageDoodsLink
-            fontSize={['17px']}
-            letterSpacing={fontS18L15S2W3.letterSpacing}
-            fontWeight={fontS18L15S2W3.weight}
-            lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
+            fontSize={[fontS17L15S2W3.sizeMobile, fontS17L15S2W3.sizeMobile, fontS17L15S2W3.size]}
+            letterSpacing={fontS17L15S2W3.letterSpacing}
+            fontWeight={fontS17L15S2W3.weight}
+            lineHeight={[fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight]}
             color={theme.textSecondary}
             text="GITHUB"
-          />
-          {' '}*{' '}
+          />{' '}
+          *{' '}
           <AverageDoodsLink
-            fontSize={['17px']}
-            letterSpacing={fontS18L15S2W3.letterSpacing}
-            fontWeight={fontS18L15S2W3.weight}
-            lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
+            fontSize={[fontS17L15S2W3.sizeMobile, fontS17L15S2W3.sizeMobile, fontS17L15S2W3.size]}
+            letterSpacing={fontS17L15S2W3.letterSpacing}
+            fontWeight={fontS17L15S2W3.weight}
+            lineHeight={[fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight]}
             color={theme.textSecondary}
             text="STACKOVERFLOW"
-          />
-          {' '}*{' '}
+          />{' '}
+          *{' '}
           <AverageDoodsLink
-            fontSize={['17px']}
-            letterSpacing={fontS18L15S2W3.letterSpacing}
-            fontWeight={fontS18L15S2W3.weight}
-            lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
+            fontSize={[fontS17L15S2W3.sizeMobile, fontS17L15S2W3.sizeMobile, fontS17L15S2W3.size]}
+            letterSpacing={fontS17L15S2W3.letterSpacing}
+            fontWeight={fontS17L15S2W3.weight}
+            lineHeight={[fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight]}
             color={theme.textSecondary}
             text="PAYPAL"
-          />
-          {' '}*{' '}
+          />{' '}
+          *{' '}
         </Text>
       </Flex>
     </Flex>
