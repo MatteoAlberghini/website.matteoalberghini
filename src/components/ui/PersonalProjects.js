@@ -10,7 +10,7 @@ import { Flex, Text } from '@chakra-ui/layout'
 // Prop types
 import PropTypes from 'prop-types'
 // Constants
-import { fontS65H13S2W3, fontS18L15S2W3 } from '../../constants/font-sizes'
+import { fontS65H13S2W3, fontS18L15S2W3, fontS35L13S2W3, fontS22L13S2W3 } from '../../constants/font-sizes'
 // UI
 import { CodeButton } from './CodeButton'
 import AverageDoodsLink from './Link'
@@ -41,10 +41,10 @@ function PersonalProjects({
   return (
     <Flex flexDir="column" maxW="1300px" w="100%" alignSelf="center" pt={mt} justify="center" ref={(ref) => setRef(ref)}>
       <Text
-        fontSize={['22px', '22px', '35px']}
-        letterSpacing={fontS65H13S2W3.letterSpacing}
-        fontWeight={fontS65H13S2W3.weight}
-        lineHeight={[fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight]}
+        fontSize={[fontS35L13S2W3.sizeMobile, fontS35L13S2W3.sizeMobile, fontS35L13S2W3.size]}
+        letterSpacing={fontS35L13S2W3.letterSpacing}
+        fontWeight={fontS35L13S2W3.weight}
+        lineHeight={[fontS35L13S2W3.lineHeight, fontS35L13S2W3.lineHeight, fontS35L13S2W3.lineHeight]}
         color={theme.textPrimary}
         w={['94%', '94%', '94%', '100%']}
         ms={['16px', '16px', '16px', '0%']}
@@ -66,45 +66,43 @@ function PersonalProjects({
         {description}
       </Text>
 
-      <Flex flexDir="column" w="100%" mt="28px">
+      <Flex
+        flexDir="column"
+        mt="28px"
+        w={['90%', '90%', '100%']}
+        ms={['5%', '5%', '0%']}
+        me={['5%', '5%', '0%']}
+        justify="center"
+        alignItems="center"
+      >
         {projects.map((e, index) => (
           <Flex
-            backgroundImage="linear-gradient(#FFFFFF, #FFFFFF), linear-gradient(#FFFFFF, #FFFFFF);"
-            backgroundRepeat="no-repeat"
-            backgroundSize="8px 1px"
-            backgroundPosition="top left, bottom left"
-            border="solid #FFFFFF"
-            borderWidth="0 1px"
-            padding="10px"
-            paddingStart="24px"
-            paddingEnd="24px"
             key={e.id}
             paddingTop="10px"
             paddingBottom="10px"
-            mt={index === 0 ? '32px' : '64px'}
+            mt={index === 0 ? ['10px', '10px', '32px'] : ['50px', '50px', '64px']}
+            flexDir={['column', 'column', 'row']}
           >
             <Flex width="100%" flexDir="column">
               <Flex flex="1" flexDir="column">
                 <Text
-                  fontSize={['23px']}
-                  letterSpacing={fontS65H13S2W3.letterSpacing}
-                  lineHeight={[fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight]}
+                  fontSize={[fontS22L13S2W3.sizeMobile, fontS22L13S2W3.sizeMobile, fontS22L13S2W3.size]}
+                  letterSpacing={fontS22L13S2W3.letterSpacing}
+                  lineHeight={[fontS22L13S2W3.lineHeight]}
                   color={theme.textPrimary}
                   w={['94%', '94%', '94%', '100%']}
-                  ms={['16px', '16px', '16px', '0%']}
-                  me={['16px', '16px', '16px', '0%']}
                 >
                   {e.id}
                 </Text>
-                <Flex mt="12px">
+                <Flex mt="14px" flexDir={['column', 'column', 'row']}>
                   {e.tags.map((t, i) => (
-                    <Flex flexDir="row" key={t} justify="center" align="center" ms={i === 0 ? '0px' : '10px'}>
+                    <Flex key={t} justify="center" align="center" flexDir="row" ms={i === 0 ? '0px' : ['0px', '0px', '10px']}>
                       <Flex width="8px" height="8px" background={theme.textSecondary} borderRadius="50%" />
                       <Text
                         fontSize={['15px']}
-                        letterSpacing={fontS65H13S2W3.letterSpacing}
+                        letterSpacing={fontS18L15S2W3.letterSpacing}
                         fontWeight={fontS65H13S2W3.weight}
-                        lineHeight={[fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight]}
+                        lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
                         color={theme.textSecondary}
                         w={['94%', '94%', '94%', '100%']}
                         ms={['6px']}
@@ -115,8 +113,8 @@ function PersonalProjects({
                   ))}
                 </Flex>
                 <Text
-                  fontSize={['17px']}
-                  mt="16px"
+                  fontSize={['15px', '15px', '17px']}
+                  mt="22px"
                   letterSpacing={'1.9px'}
                   fontWeight={fontS65H13S2W3.weight}
                   lineHeight={[fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight]}
@@ -132,12 +130,12 @@ function PersonalProjects({
                   lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
                   color={theme.textPrimary}
                   text="< VIEW PROJECT />"
-                  mt={['24px']}
+                  mt={['28px']}
                   alignSelf="flex-start"
                 />
               </Flex>
             </Flex>
-            <Img src={e.image} height="290px" mt="" />
+            <Img src={e.image} maxH="290px" mt={['28px', '28px', '0px']} boxShadow="5px 9px 23px 5px #00000050" maxW="100%" alignSelf="center" />
           </Flex>
         ))}
       </Flex>

@@ -10,7 +10,7 @@ import { Flex, Text, Link } from '@chakra-ui/layout'
 // Prop types
 import PropTypes from 'prop-types'
 // Constants
-import { fontS65H13S2W3, fontS18L15S2W3 } from '../../constants/font-sizes'
+import { fontS65H13S2W3, fontS18L15S2W3, fontS22L13S2W3, fontS35L13S2W3 } from '../../constants/font-sizes'
 // UI
 import { CodeButton } from './CodeButton'
 import { GithubIcon } from './icons/GithubIcon'
@@ -36,10 +36,10 @@ function ScriptsNRepositories({
   return (
     <Flex flexDir="column" maxW="1300px" w="100%" alignSelf="center" pt={mt} justify="center" ref={(ref) => setRef(ref)}>
       <Text
-        fontSize={['22px', '22px', '35px']}
-        letterSpacing={fontS65H13S2W3.letterSpacing}
-        fontWeight={fontS65H13S2W3.weight}
-        lineHeight={[fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight]}
+        fontSize={[fontS35L13S2W3.sizeMobile, fontS35L13S2W3.sizeMobile, fontS35L13S2W3.size]}
+        letterSpacing={fontS35L13S2W3.letterSpacing}
+        fontWeight={fontS35L13S2W3.weight}
+        lineHeight={[fontS35L13S2W3.lineHeight]}
         color={theme.textPrimary}
         w={['94%', '94%', '94%', '100%']}
         ms={['16px', '16px', '16px', '0%']}
@@ -61,7 +61,7 @@ function ScriptsNRepositories({
         {description}
       </Text>
 
-      <Flex flexDir="column" w="100%" mt="28px">
+      <Flex flexDir="column" w="100%" mt={['14px', '14px', '28px']}>
         {projects.map((e, index) => (
           <Flex
             key={e.id}
@@ -74,37 +74,47 @@ function ScriptsNRepositories({
             padding="10px"
             paddingStart="24px"
             paddingEnd="24px"
-            mt={index === 0 ? '32px' : '54px'}
-            w="100%"
+            mt={index === 0 ? ['25px', '25px', '32px'] : ['30px', '30px', '54px']}
+            w={['90%', '90%', '100%']}
+            ms={['5%', '5%', '0%']}
+            me={['5%', '5%', '0%']}
+            onClick={() => openProjectURL(e.url)}
+            _hover={{
+              cursor: 'pointer',
+            }}
           >
             <Flex w="100%" flexDir="column">
-              <Flex w="100%" flexDir="row" align="center">
-                <AverageDoodsLink
-                  text={e.id}
-                  fontSize={['22px']}
-                  letterSpacing={fontS65H13S2W3.letterSpacing}
-                  fontWeight={fontS65H13S2W3.weight}
-                  lineHeight={[fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight]}
-                  color={theme.textPrimary}
-                  onClick={() => openProjectURL(e.url)}
-                />
+              <Flex w="100%" flexDir={['column', 'column', 'row']} align={['flex-start', 'flex-start', 'center']}>
+                <Flex flex="1" maxW="100%" overflowWrap="break-word" flexWrap="wrap">
+                  <Text
+                    fontSize={[fontS22L13S2W3.sizeMobile, fontS22L13S2W3.sizeMobile, fontS22L13S2W3.size]}
+                    letterSpacing={fontS22L13S2W3.letterSpacing}
+                    fontWeight={fontS22L13S2W3.weight}
+                    lineHeight={[fontS22L13S2W3.lineHeight, fontS22L13S2W3.lineHeight, fontS22L13S2W3.lineHeight]}
+                    color={theme.textPrimary}
+                    wordBreak="break-word"
+                    w={['100%', '100%', 'max-content']}
+                  >
+                    {e.id}
+                  </Text>
+                </Flex>
                 <Text
-                  fontSize={['18px']}
-                  letterSpacing={fontS65H13S2W3.letterSpacing}
-                  fontWeight={fontS65H13S2W3.weight}
-                  lineHeight={[fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight]}
+                  fontSize={[fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size]}
+                  letterSpacing={fontS18L15S2W3.letterSpacing}
+                  fontWeight={fontS18L15S2W3.weight}
+                  lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
                   color={e.type === 'repository' ? theme.secondary : theme.primary}
-                  alignSelf="center"
-                  mt="5px"
-                  ms="12px"
+                  alignSelf={['flex-start', 'flex-start', 'flex-end']}
+                  mt={['10px', '10px', '5px']}
+                  ms={['0px', '0px', '12px']}
                 >
                   {e.type === 'repository' ? '// Repository //' : '// Script //'}
                 </Text>
               </Flex>
-              <Flex mt="8px" w="100%" justify="space-between">
-                <Flex>
+              <Flex mt={['10px', '10px', '8px']} w="100%" justify="space-between" flexDir={['column', 'column', 'row']}>
+                <Flex flexDir={['column', 'column', 'row']}>
                   {e.tags.map((t, i) => (
-                    <Flex flexDir="row" key={t} justify="center" align="center" ms={i === 0 ? '0px' : '13px'}>
+                    <Flex key={t} justify="center" align="center" ms={i === 0 ? '0px' : ['0px', '0px', '13px']}>
                       <Flex width="8px" height="8px" background={theme.textSecondary} borderRadius="50%" />
                       <Text
                         fontSize={['15px']}
@@ -120,7 +130,7 @@ function ScriptsNRepositories({
                     </Flex>
                   ))}
                 </Flex>
-                <Flex alignSelf="flex-end">
+                <Flex alignSelf={['flex-start', 'flex-start', 'flex-end']} mt={['20px', '20px', '0px']}>
                   <AverageDoodsLink fontSize="15px" letterSpacing="2.1px" text="< VIEW ON GITHUB />" onClick={() => openProjectURL(e.url)} />
                 </Flex>
               </Flex>
