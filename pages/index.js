@@ -154,8 +154,8 @@ class Home extends Component {
         {/* HEAD */}
         <Head>
           {/* Title & Responsive */}
-          <title>Average doods</title>
-          <meta title="Average doods" />
+          <title>Matteo Alberghini // Average Doods</title>
+          <meta title="Matteo Alberghini // Average Doods" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           {/* Favicon */}
           {/* Meta tags */}
