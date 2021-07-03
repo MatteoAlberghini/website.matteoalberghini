@@ -4,6 +4,7 @@
 // SECTION Imports
 // Next
 import Head from 'next/head'
+import withRouter from 'next/dist/client/with-router'
 // React
 import { Component } from 'react'
 // Chakra UI
@@ -45,6 +46,15 @@ class Home extends Component {
   // Mount
   componentDidMount() {
     window.addEventListener('scroll', this.scrolling)
+    // Check redirects
+    const { to } = this.props
+    if (to !== null && to !== undefined) {
+      if (to === 'projects') {
+        setTimeout(() => {
+          this.navigateAllProjects()
+        }, 1000)
+      }
+    }
   }
   // Unmount
   componentWillUnmount() {
@@ -116,6 +126,18 @@ class Home extends Component {
   navigateContacts = () => {
     if (this.footerRef) this.footerRef.scrollIntoView({ behavior: 'smooth' })
   }
+  // Navigate to resume
+  navigateResume = () => {
+    const { router } = this.props
+    router.push('/resume')
+  }
+  // Scroll back to top
+  scrollTop = () => {
+    window.scrollTo({
+      behavior: 'smooth',
+      top: 0,
+    })
+  }
   // Open project on blank
   openProjectURL = (url) => {
     window.open(url, '_blank')
@@ -146,15 +168,18 @@ class Home extends Component {
           animated={headerButtonsShown}
           contactFunction={this.navigateContacts}
           projectsFunction={this.navigateAllProjects}
+          resumeFunction={this.navigateResume}
+          homeFunction={this.scrollTop}
+          currentPage="projects"
         />
 
         {/* BODY */}
         <Flex minH="100vh" alignSelf="center" w="100%" justify="center" flexDir="column" paddingTop={['43px', '43px', '43px', '0']}>
           {/* Text section & Buttons */}
-          <Flex flexDir="column" maxW="1300px" w="94%" alignSelf="center" justify="center">
+          <Flex flexDir="column" maxW="1300px" w="96%" alignSelf="center" justify="center">
             {/* Title */}
             <Text
-              fontSize={[fontS65H13S2W3.sizeMobile, fontS65H13S2W3.sizeMobile, fontS65H13S2W3.size]}
+              fontSize={['30px', '30px', fontS65H13S2W3.size]}
               letterSpacing={fontS65H13S2W3.letterSpacing}
               fontWeight={fontS65H13S2W3.weight}
               lineHeight={[fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight]}
@@ -162,29 +187,42 @@ class Home extends Component {
               w={['94%', '94%', '94%', '100%']}
               ms={['16px', '16px', '16px', '0%']}
               me={['16px', '16px', '16px', '0%']}
-              alignSelf="center"
+              mt={['30px', '30px', '30px', '0px']}
             >
               Hello, I'm Matteo Alberghini :)
             </Text>
             {/* Subtitle */}
             <Text
-              fontSize={[fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size]}
+              fontSize={['15px', '15px', fontS18L15S2W3.size]}
               letterSpacing={fontS18L15S2W3.letterSpacing}
               fontWeight={fontS18L15S2W3.weight}
               lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
               color={theme.textSecondary}
-              mt="24px"
+              mt="16px"
               w={['94%', '94%', '94%', '100%']}
               ms={['16px', '16px', '16px', '0%']}
               me={['16px', '16px', '16px', '0%']}
             >
-              Developer currently based in Bologna, Italy. Mainly working on Web, Mobile & Videogames. Writer, avid reader and tech enthusiast.
-              Currently main frontend developer for{' '}
-              <AverageDoodsLink text="Genuino Blockchain Technologies." color={theme.textSecondary} onClick={this.navigateGenuino} />
+              I'm a developer currently based in Modena, Italy. Mainly focused on Web, Mobile & Videogame development. Writer, book worm and tech
+              enthusiast. Currently main frontend developer for{' '}
+              <AverageDoodsLink
+                text="Genuino Blockchain Technologies."
+                fontSize={['15px', '15px', fontS18L15S2W3.size]}
+                color={theme.textSecondary}
+                onClick={this.navigateGenuino}
+              />{' '}
+              Currently looking for a new job in the European area.
             </Text>
             {/* Button / link to portfolio */}
-            <Flex flexDir={['column', 'column', 'row']} justify="space-between" w="96%" mt="32px">
-              <CodeButton text="Learn more about my tech stack" onClick={this.navigateAllProjects} />
+            <Flex
+              flexDir={['column', 'column', 'row']}
+              justify="space-between"
+              me={['16px', '16px', '16px', '0%']}
+              ms={['16px', '16px', '16px', '0%']}
+              w="94%"
+              mt="32px"
+            >
+              <CodeButton text="Have a look at my resume" onClick={this.navigateResume} />
               <CodeButton text="Check out some of my work" onClick={this.navigateAllProjects} mt={['24px', '24px', '0px']} />
             </Flex>
           </Flex>
@@ -207,7 +245,7 @@ class Home extends Component {
           paddingBottom={['62px', '62px', '144px']}
         >
           {/* Projects title */}
-          <Flex flexDir="column" maxW="1300px" w="100%" alignSelf="center" justify="center">
+          <Flex flexDir="column" maxW="1300px" w="96%" alignSelf="center" justify="center" mt={['30px', '30px', '30px', '0px']}>
             <Text
               fontSize={[fontS65H13S2W3.sizeMobile, fontS65H13S2W3.sizeMobile, fontS65H13S2W3.size]}
               letterSpacing={fontS65H13S2W3.letterSpacing}
@@ -221,48 +259,55 @@ class Home extends Component {
               Works && Personal Projects
             </Text>
             <Text
-              fontSize={[fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size]}
+              fontSize={['15px', '15px', fontS18L15S2W3.size]}
               letterSpacing={fontS18L15S2W3.letterSpacing}
               fontWeight={fontS18L15S2W3.weight}
               lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
               color={theme.textSecondary}
-              mt="8px"
+              mt="16px"
               w={['94%', '94%', '94%', '100%']}
               ms={['16px', '16px', '16px', '0%']}
               me={['16px', '16px', '16px', '0%']}
             >
-              JUMP TO: <AverageDoodsLink reverted={false} text="Websites" color={theme.textSecondary} onClick={this.navigateToProjectsWeb} /> //{' '}
-              <AverageDoodsLink reverted={false} text="Mobile Apps" color={theme.textSecondary} onClick={this.navigateToProjectsMobile} /> //{' '}
-              <AverageDoodsLink reverted={false} text="Personal Projects" color={theme.textSecondary} onClick={this.navigateToPersonalProjects} /> //{' '}
-              <AverageDoodsLink reverted={false} text="Scripts && Repositories" color={theme.textSecondary} onClick={this.navigateToScripts} />
+              JUMP TO:{' '}
+              <AverageDoodsLink
+                fontSize={['15px', '15px', fontS18L15S2W3.size]}
+                reverted={false}
+                text="Work Projects"
+                color={theme.textSecondary}
+                onClick={this.navigateToProjectsWeb}
+              />{' '}
+              //{' '}
+              <AverageDoodsLink
+                reverted={false}
+                text="Personal Projects"
+                fontSize={['15px', '15px', fontS18L15S2W3.size]}
+                color={theme.textSecondary}
+                onClick={this.navigateToPersonalProjects}
+              />{' '}
+              //{' '}
+              <AverageDoodsLink
+                fontSize={['15px', '15px', fontS18L15S2W3.size]}
+                reverted={false}
+                text="Scripts && Repositories"
+                color={theme.textSecondary}
+                onClick={this.navigateToScripts}
+              />
             </Text>
           </Flex>
 
           {/* Web */}
           <HomeProjects
-            projects={projectWebsites}
+            projectsWeb={projectWebsites}
+            projectsMobile={projectMobile}
             theme={theme}
             setRef={(ref) => (this.webRef = ref)}
-            title={'< Websites />'}
+            title={'< Work Projects />'}
             description={
-              'A sample size of the websites I worked on. Using Wordpress, React, Node & Django. Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+              "Some of my work projects are listed here. Not all of them are open source. If you're interested in code snippets or examples feel free to contact me."
             }
             mt={['70px', '70px', '128px']}
-            height={['250px', '250px', '340px']}
-          />
-
-          {/* Mobile */}
-          <HomeProjects
-            projects={projectMobile}
-            theme={theme}
-            setRef={(ref) => (this.mobileRef = ref)}
-            title={'< Mobile Apps />'}
-            description={
-              "Some of the apps I made. I can work on native android & ios, using kotlin, java, swift or objc. I've also knoledge of different frameworks such as React, Xamarin & Flutter."
-            }
-            height={['280px', '280px', '440px']}
-            mt={['70px', '70px', '128px']}
-            imageMr={['120px']}
+            height={['auto', 'auto', '340px']}
           />
 
           {/* Personal Projects */}
@@ -272,7 +317,7 @@ class Home extends Component {
             setRef={(ref) => (this.personalProjectsRef = ref)}
             title={'< Personal Projects />'}
             description={
-              "Some of the apps I made. I can work on native android & ios, using kotlin, java, swift or objc. I've also knoledge of different frameworks such as React, Xamarin & Flutter."
+              "All my personal projects are listed here. The entire codebase is available on github. As you're reading this I'm probably working on something else, feel free to contact me to know more!"
             }
             mt={['70px', '70px', '128px']}
           />
@@ -283,9 +328,7 @@ class Home extends Component {
             theme={theme}
             setRef={(ref) => (this.scriptsRef = ref)}
             title={'< Scripts && Repositories />'}
-            description={
-              "Some of the apps I made. I can work on native android & ios, using kotlin, java, swift or objc. I've also knoledge of different frameworks such as React, Xamarin & Flutter."
-            }
+            description={'A list of my repositories and useful script or code snippets. Feel free to copy and modify them. More are coming.'}
             mt={['70px', '70px', '128px']}
           />
         </Flex>
@@ -298,16 +341,24 @@ class Home extends Component {
 }
 
 // SECTION Export & Props
+// Check if user has been redirected from another page
+const checkRedirect = (ctx) => {
+  const { to } = ctx.query
+  if (to === undefined || to === null) return null
+  return to
+}
 // Server side props
 export const getServerSideProps = async (ctx) => {
   const { locale } = ctx
   let { theme } = cookies(ctx)
   if (!theme) theme = themes.standard
+  const to = checkRedirect(ctx)
   return {
     props: {
       // ...(await serverSideTranslations(locale, ['common', 'auth'])),
       locale,
       theme,
+      to,
     },
   }
 }
@@ -315,8 +366,10 @@ export const getServerSideProps = async (ctx) => {
 Home.propTypes = {
   locale: PropTypes.any,
   theme: PropTypes.object,
+  to: PropTypes.string,
+  router: PropTypes.any,
 }
 // Context type
 Home.contextType = ApplicationContext
 // Export
-export default Home
+export default withRouter(Home)

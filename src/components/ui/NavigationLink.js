@@ -16,7 +16,7 @@ import { motion } from 'framer-motion'
 const MotionLink = motion(Link)
 
 // SECTION Main function
-function NavigationLink({ color = '#FFFFFF', text = '', ms = ['0px'], onClick = () => {} }) {
+function NavigationLink({ color = '#FFFFFF', text = '', ms = ['0px'], onClick = () => {}, alignSelf = 'center', mt = ['0px'] }) {
   // ANCHOR Constants
   // Variants
   const spanVariants = {
@@ -32,7 +32,7 @@ function NavigationLink({ color = '#FFFFFF', text = '', ms = ['0px'], onClick = 
       initial="rest"
       animate="rest"
       whiteSpace="nowrap"
-      alignSelf="center"
+      alignSelf={alignSelf}
       _hover={{
         cursor: 'pointer',
       }}
@@ -46,6 +46,7 @@ function NavigationLink({ color = '#FFFFFF', text = '', ms = ['0px'], onClick = 
       letterSpacing={'2px'}
       boxShadow="none"
       ms={ms}
+      mt={mt}
     >
       {text}
       <motion.span

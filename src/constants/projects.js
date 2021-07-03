@@ -5,6 +5,15 @@
 // ANCHOR Websites
 export const projectWebsites = [
   {
+    id: 'Genuino',
+    url: 'https://genuino.world/',
+    image: '',
+  },
+  {
+    id: 'Daruma',
+    url: 'https://www.siamodaruma.com/',
+  },
+  {
     id: 'Bonfor Estate',
     url: 'http://bonforestate.com/en/home-2/',
     image: '/images/bonfor_laptop.png',
@@ -30,15 +39,17 @@ export const projectWebsites = [
 // ANCHOR Mobile
 export const projectMobile = [
   {
-    id: 'Digi PR',
-    url: 'http://google.com',
-    image: '/images/dg.png',
-    baseImage: '/images/phone.png',
+    id: 'Eden',
+    url: 'https://www.rebornideas.com/collections/eden-wallet-digitale-con-assistente-interattivo',
+    image: '/images/eden.png',
   },
   {
-    id: 'Eden',
-    url: 'http://google.com',
-    image: '/images/eden.png',
+    id: 'Venice my port',
+    url: 'https://www.vtp.it/app-venice-my-port/',
+  },
+  {
+    id: 'Spylog',
+    url: 'https://chimar.eu/en/spylog-en/',
   },
 ]
 
@@ -49,14 +60,16 @@ export const projectsMiscellaneous = [
     url: 'https://github.com/MatteoAlberghini/SpaceGameWithPythonArcade',
     image: '/images/space.png',
     tags: ['Python', 'Python Arcade', 'Desktop App'],
-    description: "Some of the apps I made. I can work on native android & ios, using kotlin, java, swift or objc. I've also knoledge of different frameworks such as React, Xamarin & Flutter.",
+    description:
+      'A really simple python game made using Python Arcade library. It was mainly a test to see if python was videogame development-friendly. Art is from OpenGameArt, with some tweaks and textures of my own.',
   },
   {
     id: 'Recipes Searcher App',
     url: 'https://github.com/MatteoAlberghini/SpaceGameWithPythonArcade',
     image: '/images/recipes-full.png',
     tags: ['React Native', 'Recipes Puppy APIs'],
-    description: "Some of the apps I made. I can work on native android & ios, using kotlin, java, swift or objc. I've also knoledge of different frameworks such as React, Xamarin & Flutter.",
+    description:
+      "This is an app made with react native, it's to search for recipes using Recipes Puppy's APIs. Animations are made with Lottie and Art is hand-drawn.",
   },
 ]
 
@@ -94,7 +107,7 @@ export const projectsScripts = [
   },
   {
     id: 'ES6+ Helper functions',
-    url: 'https://google.com',
+    url: 'https://github.com/MatteoAlberghini/helper.es6.functions',
     type: 'repository',
     tags: ['Javascript'],
   },
