@@ -58,12 +58,12 @@ html, body { height: 100%; margin: 0; background-color: #181818; text-rendering:
 
 /* NS PROGRESS BAR */
 #nprogress .bar {
-    background: #7991D1 !important;
+    background: #DB2763 !important;
 }
 
 /* SELECTION */
 ::selection {
-    background-color: #7991D1 !important;
+    background-color: #DB2763 !important;
     color: #FFF !important;
 }
   
@@ -76,4 +76,3 @@ html, body { height: 100%; margin: 0; background-color: #181818; text-rendering:
   height: 0px;
   background: #191919;
 }
-

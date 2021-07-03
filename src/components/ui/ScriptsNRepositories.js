@@ -34,7 +34,7 @@ function ScriptsNRepositories({
 
   // ANCHOR Return
   return (
-    <Flex flexDir="column" maxW="1300px" w="100%" alignSelf="center" pt={mt} justify="center" ref={(ref) => setRef(ref)}>
+    <Flex flexDir="column" maxW="1300px" w="96%" alignSelf="center" pt={mt} justify="center" ref={(ref) => setRef(ref)}>
       <Text
         fontSize={[fontS35L13S2W3.sizeMobile, fontS35L13S2W3.sizeMobile, fontS35L13S2W3.size]}
         letterSpacing={fontS35L13S2W3.letterSpacing}
@@ -48,7 +48,7 @@ function ScriptsNRepositories({
         {title}
       </Text>
       <Text
-        fontSize={[fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size]}
+        fontSize={['15px', '15px', fontS18L15S2W3.size]}
         letterSpacing={fontS18L15S2W3.letterSpacing}
         fontWeight={fontS18L15S2W3.weight}
         lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}

@@ -4,8 +4,6 @@
 // SECTION Imports
 // React
 import * as React from 'react'
-// Framer motion
-import { motion, useViewportScroll } from 'framer-motion'
 // Prop types
 import PropTypes from 'prop-types'
 // Constants
@@ -22,7 +20,7 @@ export const ThemeChangeButton = ({ theme = themes.standard, onClick = () => {},
       width="43px"
       height="43px"
       border={'1px solid ' + theme.textPrimary}
-      cursor="pointer"
+      // cursor="pointer"
       align="center"
       justify="center"
       zIndex="0"
@@ -61,7 +59,7 @@ export const ThemeChangeButton = ({ theme = themes.standard, onClick = () => {},
       onClick={onClick}
       className="avdoods-code-button"
     >
-      {theme.name === 'standard' && <Img src="/images/logo-code.svg" width="30px" />}
+      {theme.name === 'code' && <Img src="/images/logo-code.svg" width="30px" />}
     </Button>
   )
 }

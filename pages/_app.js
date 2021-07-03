@@ -1,5 +1,5 @@
 /*
- * [PAGE] First page to render
+ * [PAGE] App entry point
  */
 // SECTION Imports
 // Chakra imports

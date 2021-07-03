@@ -39,7 +39,7 @@ function PersonalProjects({
 
   // ANCHOR Return
   return (
-    <Flex flexDir="column" maxW="1300px" w="100%" alignSelf="center" pt={mt} justify="center" ref={(ref) => setRef(ref)}>
+    <Flex flexDir="column" maxW="1300px" w="96%" alignSelf="center" pt={mt} justify="center" ref={(ref) => setRef(ref)}>
       <Text
         fontSize={[fontS35L13S2W3.sizeMobile, fontS35L13S2W3.sizeMobile, fontS35L13S2W3.size]}
         letterSpacing={fontS35L13S2W3.letterSpacing}
@@ -53,7 +53,7 @@ function PersonalProjects({
         {title}
       </Text>
       <Text
-        fontSize={[fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size]}
+        fontSize={['15px', '15px', fontS18L15S2W3.size]}
         letterSpacing={fontS18L15S2W3.letterSpacing}
         fontWeight={fontS18L15S2W3.weight}
         lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
@@ -80,15 +80,16 @@ function PersonalProjects({
             key={e.id}
             paddingTop="10px"
             paddingBottom="10px"
-            mt={index === 0 ? ['10px', '10px', '32px'] : ['50px', '50px', '64px']}
+            mt={index === 0 ? ['10px', '10px', '48px'] : ['50px', '50px', '64px']}
             flexDir={['column', 'column', 'row']}
           >
             <Flex width="100%" flexDir="column">
               <Flex flex="1" flexDir="column">
                 <Text
-                  fontSize={[fontS22L13S2W3.sizeMobile, fontS22L13S2W3.sizeMobile, fontS22L13S2W3.size]}
+                  fontSize={['21px', '21px', '24px']}
                   letterSpacing={fontS22L13S2W3.letterSpacing}
-                  lineHeight={[fontS22L13S2W3.lineHeight]}
+                  fontWeight={fontS22L13S2W3.weight}
+                  lineHeight={[fontS22L13S2W3.lineHeight, fontS22L13S2W3.lineHeight, fontS22L13S2W3.lineHeight]}
                   color={theme.textPrimary}
                   w={['94%', '94%', '94%', '100%']}
                 >
@@ -101,7 +102,7 @@ function PersonalProjects({
                       <Text
                         fontSize={['15px']}
                         letterSpacing={fontS18L15S2W3.letterSpacing}
-                        fontWeight={fontS65H13S2W3.weight}
+                        fontWeight={fontS18L15S2W3.weight}
                         lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
                         color={theme.textSecondary}
                         w={['94%', '94%', '94%', '100%']}
@@ -113,18 +114,18 @@ function PersonalProjects({
                   ))}
                 </Flex>
                 <Text
-                  fontSize={['15px', '15px', '17px']}
                   mt="22px"
-                  letterSpacing={'1.9px'}
-                  fontWeight={fontS65H13S2W3.weight}
-                  lineHeight={[fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight]}
+                  fontSize={['15px', '15px', '17px']}
+                  letterSpacing={'1.5px'}
+                  fontWeight={fontS18L15S2W3.weight}
+                  lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
                   color={theme.textSecondary}
                   w={['94%']}
                 >
                   {e.description}
                 </Text>
                 <AverageDoodsLink
-                  fontSize={['17px']}
+                  fontSize={['15px', '15px', '17px']}
                   letterSpacing={fontS18L15S2W3.letterSpacing}
                   fontWeight={fontS18L15S2W3.weight}
                   lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
@@ -135,7 +136,7 @@ function PersonalProjects({
                 />
               </Flex>
             </Flex>
-            <Img src={e.image} maxH="290px" mt={['28px', '28px', '0px']} boxShadow="5px 9px 23px 5px #00000050" maxW="100%" alignSelf="center" />
+            <Img src={e.image} maxH="270px" mt={['28px', '28px', '0px']} boxShadow="5px 9px 23px 5px #00000050" maxW="100%" alignSelf="center" />
           </Flex>
         ))}
       </Flex>
