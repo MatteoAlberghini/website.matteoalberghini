@@ -18,7 +18,6 @@ const MotionLink = motion(Link)
 
 // SECTION Main function
 function AverageDoodsLink({
-  selected = false,
   animated = true,
   w = ['auto'],
   color = '#FFFFFF',
@@ -27,9 +26,9 @@ function AverageDoodsLink({
   mt = ['0px'],
   onClick = () => {},
   reverted = false,
-  fontSize= [fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size],
-  lineHeight= fontS18L15S2W3.lineHeight,
-  letterSpacing= fontS18L15S2W3.letterSpacing,
+  fontSize = [fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size],
+  lineHeight = fontS18L15S2W3.lineHeight,
+  letterSpacing = fontS18L15S2W3.letterSpacing,
   fontWeight = '300',
   alignSelf = 'center',
   wordBreak = undefined,
@@ -88,14 +87,20 @@ function AverageDoodsLink({
 
 // SECTION Export & Prop types
 AverageDoodsLink.propTypes = {
-  ms: PropTypes.array,
-  mt: PropTypes.array,
-  w: PropTypes.array,
+  ms: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  mt: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  w: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   color: PropTypes.string,
   text: PropTypes.string,
   onClick: PropTypes.func,
   animated: PropTypes.bool,
-  selected: PropTypes.bool,
   reverted: PropTypes.bool,
+  fontSize: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  lineHeight: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  letterSpacing: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  fontWeight: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  alignSelf: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  wordBreak: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  flex: PropTypes.oneOfType([PropTypes.array, PropTypes.string, PropTypes.number]),
 }
 export default AverageDoodsLink
