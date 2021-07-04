@@ -153,12 +153,61 @@ class Home extends Component {
       <Flex minH="100%" flexDir="column">
         {/* HEAD */}
         <Head>
+          {/* Preload font */}
+          <link rel="preload" href="/fonts/Dosis-VariableFont_wght.ttf" as="font" crossOrigin="anonymous" />
           {/* Title & Responsive */}
-          <title>Matteo Alberghini // Average Doods</title>
-          <meta title="Matteo Alberghini // Average Doods" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           {/* Favicon */}
-          {/* Meta tags */}
+          <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+          <link rel="manifest" href="/favicon/site.webmanifest" />
+          <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#1E1E1E" />
+          <link rel="shortcut icon" href="/favicon/favicon.ico" />
+          <meta name="msapplication-TileColor" content="#da532c" />
+          <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+          {/* Chrome, Firefox OS and Opera */}
+          <meta name="theme-color" content="#1E1E1E" />
+          {/* Windows phone */}
+          <meta name="msapplication-navbutton-color" content="#1E1E1E" />
+          {/* iOS Safari */}
+          <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+          {/* Common tags */}
+          <meta charset="utf-8" />
+          <title>{'Matteo Alberghini -- Software Developer'}</title>
+          {/* Search engine */}
+          <meta
+            name="description"
+            content="I'm a developer mainly focused on web & mobile development, with game development knowledge. Writer, book worm and tech enthusiast. Currently looking for jobs outside of Italy, my home country."
+          />
+          <meta name="image" content="https://media.publit.io/file/AvdoodsWebsite/MetaTags/preview_website.png" />
+          <meta itemProp="name" content="Matteo Alberghini -- Software Developer" />
+          <meta
+            itemProp="description"
+            content="I'm a developer mainly focused on web & mobile development, with game development knowledge. Writer, book worm and tech enthusiast. Currently looking for jobs outside of Italy, my home country."
+          />
+          <meta itemProp="image" content="https://media.publit.io/file/AvdoodsWebsite/MetaTags/preview_website.png" />
+          {/* Twitter */}
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:title" content="Matteo Alberghini -- Software Developer" />
+          <meta
+            name="twitter:description"
+            content="I'm a developer mainly focused on web & mobile development, with game development knowledge. Writer, book worm and tech enthusiast. Currently looking for jobs outside of Italy, my home country."
+          />
+          <meta name="twitter:site" content="@0x4d61646f" />
+          <meta name="twitter:creator" content="@0x4d61646f" />
+          <meta name="twitter:image:src" content="https://media.publit.io/file/AvdoodsWebsite/MetaTags/preview_website.png" />
+          {/* Open Graph general (Facebook, Pinterest & Google+) */}
+          <meta name="og:title" content="Matteo Alberghini -- Software Developer" />
+          <meta
+            name="og:description"
+            content="I'm a developer mainly focused on web & mobile development, with game development knowledge. Writer, book worm and tech enthusiast. Currently looking for jobs outside of Italy, my home country."
+          />
+          <meta name="og:image" content="https://media.publit.io/file/AvdoodsWebsite/MetaTags/preview_website.png" />
+          <meta name="og:url" content="https://averagedoods.dev" />
+          <meta name="og:site_name" content="Matteo Alberghini -- Software Developer" />
+          <meta name="og:locale" content="en_US" />
+          <meta name="og:type" content="website" />
         </Head>
 
         {/* HEADER */}
@@ -203,15 +252,15 @@ class Home extends Component {
               ms={['16px', '16px', '16px', '0%']}
               me={['16px', '16px', '16px', '0%']}
             >
-              I'm a developer currently based in Modena, Italy. Mainly focused on Web, Mobile & Videogame development. Writer, book worm and tech
-              enthusiast. Currently main frontend developer for{' '}
+              I'm a developer based in Modena, Italy. Mainly focused on Web, Mobile & Videogame development. Writer, book worm and tech enthusiast.
+              Currently main frontend developer for{' '}
               <AverageDoodsLink
                 text="Genuino Blockchain Technologies."
                 fontSize={['15px', '15px', fontS18L15S2W3.size]}
                 color={theme.textSecondary}
                 onClick={this.navigateGenuino}
               />{' '}
-              Currently looking for a new job in the European area.
+              Looking for a new job in the European area.
             </Text>
             {/* Button / link to portfolio */}
             <Flex
