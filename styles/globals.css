@@ -37,6 +37,16 @@ html, body { height: 100%; margin: 0; background-color: #181818; text-rendering:
     src: url("/fonts/Dosis-VariableFont_wght.ttf");
     font-weight: 600;
 }
+@font-face {
+    font-family: 'DailyChallenge';   
+    src: url("/fonts/DailyChallenge.otf");
+    font-weight: 200;
+}
+@font-face {
+    font-family: 'PleaseWriteMeASong';   
+    src: url("/fonts/PleaseWriteMeASong.ttf");
+    font-weight: 200;
+}
 
 /* SCROLLBAR */
 /* width */

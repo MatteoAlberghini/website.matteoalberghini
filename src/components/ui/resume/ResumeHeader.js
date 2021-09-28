@@ -65,7 +65,7 @@ export const ResumeHeader = ({ theme = themes.standard }) => {
           lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
           color={theme.textPrimary}
         >
-          info@averagedoods.com // alberghini.matteo.96@gmail.com
+          alberghini.matteo.96@gmail.com
         </Text>
         <Text
           fontSize={['16px']}

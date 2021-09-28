@@ -15,23 +15,14 @@ import cookies from 'next-cookies'
 import PropTypes from 'prop-types'
 // Constants
 import { themes } from '../src/constants/themes'
-import { fontS65H13S2W3, fontS18L15S2W3 } from '../src/constants/font-sizes'
-import { TabletAndDesktop } from '../src/constants/responsive'
-import { projectMobile, projectWebsites, projectsMiscellaneous, projectsScripts } from '../src/constants/projects'
 // Contexts
 import ApplicationContext from '../src/contexts/ApplicationContext'
 // UI
 import Header from '../src/components/macro/Header'
-import AverageDoodsLink from '../src/components/ui/Link'
-import { ScrollDownArrow } from '../src/components/ui/DownArrow'
-import { CodeButton } from '../src/components/ui/CodeButton'
-import HomeProjects from '../src/components/ui/HomeProjects'
-import PersonalProjects from '../src/components/ui/PersonalProjects'
-import ScriptsNRepositories from '../src/components/ui/ScriptsNRepositories'
 import Footer from '../src/components/macro/Footer'
 
 // SECTION Main class
-class Home extends Component {
+class Personal extends Component {
   // ANCHOR Constructor
   constructor(props) {
     super(props)
@@ -138,10 +129,6 @@ class Home extends Component {
       top: 0,
     })
   }
-  // Open project on blank
-  openProjectURL = (url) => {
-    window.open(url, '_blank')
-  }
 
   // ANCHOR Render
   render() {
@@ -154,7 +141,8 @@ class Home extends Component {
         {/* HEAD */}
         <Head>
           {/* Preload font */}
-          <link rel="preload" href="/fonts/Dosis-VariableFont_wght.ttf" as="font" crossOrigin="anonymous" />
+          <link rel="preload" href="/fonts/DailyChallenge.otf" as="font" crossOrigin="anonymous" />
+          <link rel="preload" href="/fonts/PleaseWriteMeASong.ttf" as="font" crossOrigin="anonymous" />
           {/* Title & Responsive */}
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           {/* Favicon */}
@@ -223,162 +211,17 @@ class Home extends Component {
         />
 
         {/* BODY */}
-        <Flex minH="100vh" alignSelf="center" w="100%" justify="center" flexDir="column" paddingTop={['43px', '43px', '43px', '0']}>
-          {/* Text section & Buttons */}
-          <Flex flexDir="column" maxW="1300px" w="96%" alignSelf="center" justify="center">
-            {/* Title */}
-            <Text
-              fontSize={['30px', '30px', fontS65H13S2W3.size]}
-              letterSpacing={fontS65H13S2W3.letterSpacing}
-              fontWeight={fontS65H13S2W3.weight}
-              lineHeight={[fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight]}
-              color={theme.textPrimary}
-              w={['94%', '94%', '94%', '100%']}
-              ms={['16px', '16px', '16px', '0%']}
-              me={['16px', '16px', '16px', '0%']}
-              mt={['30px', '30px', '30px', '0px']}
-            >
-              Hello, I'm Matteo Alberghini :)
-            </Text>
-            {/* Subtitle */}
-            <Text
-              fontSize={['15px', '15px', fontS18L15S2W3.size]}
-              letterSpacing={fontS18L15S2W3.letterSpacing}
-              fontWeight={fontS18L15S2W3.weight}
-              lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
-              color={theme.textSecondary}
-              mt="16px"
-              w={['94%', '94%', '94%', '100%']}
-              ms={['16px', '16px', '16px', '0%']}
-              me={['16px', '16px', '16px', '0%']}
-            >
-              I'm a developer based in Haarlem, Netherlands. Mainly focused on Web, Mobile & Videogame development. Writer, book worm and tech
-              enthusiast. Currently mobile developer for{' '}
-              <AverageDoodsLink
-                text="The Mobile Company."
-                fontSize={['15px', '15px', fontS18L15S2W3.size]}
-                color={theme.textSecondary}
-                onClick={this.navigateCurrentJob}
-              />
-            </Text>
-            {/* Button / link to portfolio */}
-            <Flex
-              flexDir={['column', 'column', 'row']}
-              justify="space-between"
-              me={['16px', '16px', '16px', '0%']}
-              ms={['16px', '16px', '16px', '0%']}
-              w="94%"
-              mt="32px"
-            >
-              <CodeButton text="Have a look at my resume" onClick={this.navigateResume} />
-              <CodeButton text="Check out some of my work" onClick={this.navigateAllProjects} mt={['24px', '24px', '0px']} />
-            </Flex>
+        <Flex minH="100vh" alignSelf="center" w="100%" justify="flex-start" flexDir="column" paddingTop={['250px', '250px', '250px', '0']}>
+        
+          {/* TEST */}
+          <Flex flexDir="column" marginTop="130px" w="100%" maxWidth="1300px" justify="center" alignItems="center">
+            <Text color={theme.textPrimary} fontWeight="200" fontSize="70px" alignSelf="center">~ Have fun looking around ~</Text>
+            <Text color={theme.textPrimary} fontWeight="200" fontSize="42px" marginTop="32px">Notebook N' Thoughts</Text>
+            <Text color={theme.textPrimary} fontWeight="200" fontSize="42px" marginTop="14px">Next Projects & Ideas</Text>
+            <Text color={theme.textPrimary} fontWeight="200" fontSize="42px" marginTop="14px">Playlists</Text>
+            <Text color={theme.textPrimary} fontWeight="200" fontSize="42px" marginTop="14px">Reading list & Ratings</Text>
           </Flex>
 
-          {/* Scroll down bar, if user clicks on entire bar it will scroll down */}
-          <TabletAndDesktop>
-            <ScrollDownArrow width="30" height="30" onClick={this.navigateAllProjects} />
-          </TabletAndDesktop>
-        </Flex>
-
-        {/* PORTFOLIO */}
-        <Flex
-          minH="100vh"
-          w="100%"
-          justify="center"
-          align="center"
-          flexDir="column"
-          ref={(ref) => (this.portfolioRef = ref)}
-          paddingTop={['62px', '62px', '144px']}
-          paddingBottom={['62px', '62px', '144px']}
-        >
-          {/* Projects title */}
-          <Flex flexDir="column" maxW="1300px" w="96%" alignSelf="center" justify="center" mt={['30px', '30px', '30px', '0px']}>
-            <Text
-              fontSize={[fontS65H13S2W3.sizeMobile, fontS65H13S2W3.sizeMobile, fontS65H13S2W3.size]}
-              letterSpacing={fontS65H13S2W3.letterSpacing}
-              fontWeight={fontS65H13S2W3.weight}
-              lineHeight={[fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight, fontS65H13S2W3.lineHeight]}
-              color={theme.textPrimary}
-              w={['94%', '94%', '94%', '100%']}
-              ms={['16px', '16px', '16px', '0%']}
-              me={['16px', '16px', '16px', '0%']}
-            >
-              Works && Personal Projects
-            </Text>
-            <Text
-              fontSize={['15px', '15px', fontS18L15S2W3.size]}
-              letterSpacing={fontS18L15S2W3.letterSpacing}
-              fontWeight={fontS18L15S2W3.weight}
-              lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
-              color={theme.textSecondary}
-              mt="16px"
-              w={['94%', '94%', '94%', '100%']}
-              ms={['16px', '16px', '16px', '0%']}
-              me={['16px', '16px', '16px', '0%']}
-            >
-              JUMP TO:{' '}
-              <AverageDoodsLink
-                fontSize={['15px', '15px', fontS18L15S2W3.size]}
-                reverted={false}
-                text="Work Projects"
-                color={theme.textSecondary}
-                onClick={this.navigateToProjectsWeb}
-              />{' '}
-              //{' '}
-              <AverageDoodsLink
-                reverted={false}
-                text="Personal Projects"
-                fontSize={['15px', '15px', fontS18L15S2W3.size]}
-                color={theme.textSecondary}
-                onClick={this.navigateToPersonalProjects}
-              />{' '}
-              //{' '}
-              <AverageDoodsLink
-                fontSize={['15px', '15px', fontS18L15S2W3.size]}
-                reverted={false}
-                text="Scripts && Repositories"
-                color={theme.textSecondary}
-                onClick={this.navigateToScripts}
-              />
-            </Text>
-          </Flex>
-
-          {/* Web */}
-          <HomeProjects
-            projectsWeb={projectWebsites}
-            projectsMobile={projectMobile}
-            theme={theme}
-            setRef={(ref) => (this.webRef = ref)}
-            title={'< Work Projects />'}
-            description={
-              "Some of my work projects are listed here. Not all of them are open source. If you're interested in code snippets or examples feel free to contact me."
-            }
-            mt={['70px', '70px', '128px']}
-            height={['auto', 'auto', '340px']}
-          />
-
-          {/* Personal Projects */}
-          <PersonalProjects
-            projects={projectsMiscellaneous}
-            theme={theme}
-            setRef={(ref) => (this.personalProjectsRef = ref)}
-            title={'< Personal Projects />'}
-            description={
-              "All my personal projects are listed here. The entire codebase is available on github. As you're reading this I'm probably working on something else, feel free to contact me to know more!"
-            }
-            mt={['70px', '70px', '128px']}
-          />
-
-          {/* Scripts & Repositories */}
-          <ScriptsNRepositories
-            projects={projectsScripts}
-            theme={theme}
-            setRef={(ref) => (this.scriptsRef = ref)}
-            title={'< Scripts && Repositories />'}
-            description={'A list of my repositories and useful script or code snippets. Feel free to copy and modify them. More are coming.'}
-            mt={['70px', '70px', '128px']}
-          />
         </Flex>
 
         {/* FOOTER */}
@@ -389,35 +232,27 @@ class Home extends Component {
 }
 
 // SECTION Export & Props
-// Check if user has been redirected from another page
-const checkRedirect = (ctx) => {
-  const { to } = ctx.query
-  if (to === undefined || to === null) return null
-  return to
-}
 // Server side props
 export const getServerSideProps = async (ctx) => {
   const { locale } = ctx
   let { theme } = cookies(ctx)
   if (!theme) theme = themes.standard
-  const to = checkRedirect(ctx)
   return {
     props: {
       // ...(await serverSideTranslations(locale, ['common', 'auth'])),
       locale,
       theme,
-      to,
     },
   }
 }
 // Prop types
-Home.propTypes = {
+Personal.propTypes = {
   locale: PropTypes.any,
   theme: PropTypes.object,
   to: PropTypes.string,
   router: PropTypes.any,
 }
 // Context type
-Home.contextType = ApplicationContext
+Personal.contextType = ApplicationContext
 // Export
-export default withRouter(Home)
+export default withRouter(Personal)

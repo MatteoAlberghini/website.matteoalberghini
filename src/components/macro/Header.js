@@ -201,17 +201,6 @@ function Header({
                       alignSelf="flex-start"
                     >
                       <AverageDoodsLink
-                        text="info@averagedoods.com"
-                        fontSize={['16px', '16px', fontS17L15S2W3.size]}
-                        letterSpacing={fontS18L15S2W3.letterSpacing}
-                        fontWeight={fontS18L15S2W3.weight}
-                        lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
-                        color={theme.textPrimary}
-                        alignSelf="flex-start"
-                        onClick={() => sendEmail('info@averagedoods.com')}
-                      />
-                      {' // '}
-                      <AverageDoodsLink
                         text="alberghini.matteo.96@gmail.com"
                         fontSize={['16px', '16px', fontS17L15S2W3.size]}
                         letterSpacing={fontS18L15S2W3.letterSpacing}
