@@ -173,7 +173,7 @@ class Home extends Component {
           {/* iOS Safari */}
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
           {/* Common tags */}
-          <meta charset="utf-8" />
+          <meta charSet="utf-8" />
           <title>{'Matteo Alberghini -- Software Developer'}</title>
           {/* Search engine */}
           <meta

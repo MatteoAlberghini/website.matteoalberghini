@@ -23,6 +23,7 @@ import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody,
 import { CloseIcon } from '../ui/icons/CloseIcon'
 import { fontS17L15S2W3, fontS18L15S2W3 } from '../../constants/font-sizes'
 import AverageDoodsLink from '../ui/Link'
+import { SwitchColorButton } from '../ui/SwitchColorButton'
 
 // SECTION File variables
 const MotionFlex = motion(Flex)

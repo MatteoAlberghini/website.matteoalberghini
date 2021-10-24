@@ -112,3 +112,14 @@ export const projectsScripts = [
     tags: ['Javascript'],
   },
 ]
+
+
+// ANCHOR Personal section
+export const personalSection = [
+  {
+    id: '',
+    url: 'https://github.com/MatteoAlberghini/HackerNewsScraper',
+    type: 'script',
+    tags: ['Python'],
+  },
+]

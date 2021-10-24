@@ -20,6 +20,8 @@ import ApplicationContext from '../src/contexts/ApplicationContext'
 // UI
 import Header from '../src/components/macro/Header'
 import Footer from '../src/components/macro/Footer'
+import ScriptsNRepositories from '../src/components/ui/ScriptsNRepositories'
+import { projectsScripts } from '../src/constants/projects'
 
 // SECTION Main class
 class Personal extends Component {
@@ -161,7 +163,7 @@ class Personal extends Component {
           {/* iOS Safari */}
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
           {/* Common tags */}
-          <meta charset="utf-8" />
+          <meta charSet="utf-8" />
           <title>{'Matteo Alberghini -- Software Developer'}</title>
           {/* Search engine */}
           <meta
@@ -212,15 +214,16 @@ class Personal extends Component {
 
         {/* BODY */}
         <Flex minH="100vh" alignSelf="center" w="100%" justify="flex-start" flexDir="column" paddingTop={['250px', '250px', '250px', '0']}>
-        
-          {/* TEST */}
-          <Flex flexDir="column" marginTop="130px" w="100%" maxWidth="1300px" justify="center" alignItems="center">
-            <Text color={theme.textPrimary} fontWeight="200" fontSize="70px" alignSelf="center">~ Have fun looking around ~</Text>
-            <Text color={theme.textPrimary} fontWeight="200" fontSize="42px" marginTop="32px">Notebook N' Thoughts</Text>
-            <Text color={theme.textPrimary} fontWeight="200" fontSize="42px" marginTop="14px">Next Projects & Ideas</Text>
-            <Text color={theme.textPrimary} fontWeight="200" fontSize="42px" marginTop="14px">Playlists</Text>
-            <Text color={theme.textPrimary} fontWeight="200" fontSize="42px" marginTop="14px">Reading list & Ratings</Text>
-          </Flex>
+
+          {/* Scripts & Repositories */}
+          <ScriptsNRepositories
+            projects={projectsScripts}
+            theme={theme}
+            setRef={(ref) => (this.scriptsRef = ref)}
+            title={'~ Have fun looking around ~'}
+            description={'A list of subpages with ideas, projects and random facts.'}
+            mt={['70px', '70px', '128px']}
+          />
 
         </Flex>
 
