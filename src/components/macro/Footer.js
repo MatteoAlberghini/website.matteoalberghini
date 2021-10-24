@@ -122,7 +122,7 @@ function Footer({ theme = themes.standard, footerRef = () => {} }) {
               lineHeight={[fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight]}
               color={theme.textSecondary}
               text=" Thank me with a Book :) "
-              onClick={() => openURL('https://buymeacoffee.com/AverageDoods')}
+              onClick={() => openURL('https://www.buymeacoffee.com/0x4d61646f')}
             />
           </Text>
         </Flex>
@@ -217,8 +217,8 @@ function Footer({ theme = themes.standard, footerRef = () => {} }) {
               fontWeight={fontS17L15S2W3.weight}
               lineHeight={[fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight, fontS17L15S2W3.lineHeight]}
               color={theme.textSecondary}
-              text="PAYPAL"
-              onClick={() => openURL('https://paypal.me/MatteoAlberghini')}
+              text="BUYMEACOFFEE"
+              onClick={() => openURL('https://www.buymeacoffee.com/0x4d61646f')}
             />{' '}
             *{' '}
           </Text>

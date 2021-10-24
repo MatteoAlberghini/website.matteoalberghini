@@ -131,6 +131,11 @@ class Home extends Component {
     const { router } = this.props
     router.push('/resume')
   }
+  // Navigate to personal side of website
+  navigatePersonal = () => {
+    const { router } = this.props
+    router.push('/personal')
+  }
   // Scroll back to top
   scrollTop = () => {
     window.scrollTo({
@@ -219,6 +224,7 @@ class Home extends Component {
           projectsFunction={this.navigateAllProjects}
           resumeFunction={this.navigateResume}
           homeFunction={this.scrollTop}
+          personalFunction={this.navigatePersonal}
           currentPage="projects"
         />
 

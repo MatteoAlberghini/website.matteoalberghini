@@ -36,6 +36,7 @@ function Header({
   contactFunction = () => {},
   resumeFunction = () => {},
   homeFunction = () => {},
+  personalFunction = () => {},
   currentPage = '',
 }) {
   // ANCHOR Constants
@@ -103,6 +104,7 @@ function Header({
               <NavigationLink color={theme.textPrimary} text="< Projects />" ms={['24px']} onClick={projectsFunction} />
               <NavigationLink color={theme.textPrimary} text="< Resume />" ms={['24px']} onClick={resumeFunction} />
               <NavigationLink color={theme.textPrimary} text="< Contacts />" ms={['24px']} onClick={contactFunction} />
+              <NavigationLink color={theme.textPrimary} text="< Personal />" ms={['24px']} onClick={personalFunction} />
               {/*}
               <NavigationLink color={theme.textPrimary} text="< Uncut & Raw />" ms={['24px']} />
               <NavigationLink color={theme.textPrimary} text="< Personal />" ms={['24px']} />

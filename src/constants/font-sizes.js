@@ -12,6 +12,14 @@ export const fontS65H13S2W3 = {
   weight: '300',
 }
 
+// Font size: 40, Line height: 1.5, Letter spacing: 2, Weight: 300
+export const fontS45L13S2W3 = {
+  size: '45px',
+  lineHeight: '1.3',
+  letterSpacing: '2px',
+  weight: '300',
+}
+
 // Font size: 35, Line height: 1.5, Letter spacing: 2, Weight: 300
 export const fontS35L13S2W3 = {
   size: '35px',

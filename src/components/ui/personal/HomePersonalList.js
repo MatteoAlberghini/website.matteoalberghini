@@ -1,0 +1,116 @@
+/*
+ * [UI - HOME PROJECTS] List of title with projects
+ */
+// SECTION Imports
+// React
+import React from 'react'
+// Chakra UI
+import { Flex, Text } from '@chakra-ui/layout'
+// Prop types
+import PropTypes from 'prop-types'
+// Constants
+import { fontS65H13S2W3, fontS18L15S2W3, fontS22L13S2W3, fontS35L13S2W3, fontS45L13S2W3 } from '../../../constants/font-sizes'
+// UI
+import AverageDoodsLink from '../Link'
+
+// SECTION Main function
+function HomePersonalList({
+  imageMr = '0px',
+  theme,
+  title = '',
+  description = '',
+  projects = [],
+  height = ['150px', '150px', '320px'],
+  setRef = () => {},
+  mt = ['0px'],
+}) {
+  // ANCHOR Return
+  return (
+    <Flex flexDir="column" maxW="1300px" w="96%" alignSelf="center" pt={mt} justify="center" ref={(ref) => setRef(ref)}>
+      <Text
+        fontSize={['50px']}
+        letterSpacing={fontS35L13S2W3.letterSpacing}
+        fontWeight={fontS35L13S2W3.weight}
+        lineHeight={[fontS35L13S2W3.lineHeight]}
+        color={theme.textPrimary}
+        textAlign={'center'}
+        w={['94%', '94%', '94%', '100%']}
+        ms={['16px', '16px', '16px', '0%']}
+        me={['16px', '16px', '16px', '0%']}
+      >
+        {title}
+      </Text>
+
+      <Flex flexDir="column" w="100%" mt={['14px', '14px', '28px']}>
+        {projects.map((e, index) => (
+          <Flex
+            key={e.id}
+            backgroundImage="linear-gradient(#FFFFFF, #FFFFFF), linear-gradient(#FFFFFF, #FFFFFF), linear-gradient(#FFFFFF, #FFFFFF), linear-gradient(#FFFFFF, #FFFFFF);"
+            backgroundRepeat="no-repeat"
+            backgroundSize="8px 1px"
+            backgroundPosition="top left, bottom left"
+            border="solid #FFFFFF"
+            borderWidth="0 1px"
+            padding="10px"
+            paddingStart="24px"
+            paddingEnd="24px"
+            mt={index === 0 ? ['25px', '25px', '32px'] : ['30px', '30px', '54px']}
+            w={['90%', '90%', '100%']}
+            ms={['5%', '5%', '0%']}
+            me={['5%', '5%', '0%']}
+            // onClick={() => openProjectURL(e.url)}
+            _hover={{
+              cursor: 'pointer',
+            }}
+          >
+            <Flex w="100%" flexDir="column">
+              <Flex w="100%" flexDir={['column', 'column', 'row']} align={['flex-start', 'flex-start', 'center']}>
+                <Flex flex="1" maxW="100%" overflowWrap="break-word" flexWrap="wrap" flexDir="column">
+                  <Text
+                    fontSize={[fontS22L13S2W3.sizeMobile, fontS22L13S2W3.sizeMobile, fontS22L13S2W3.size]}
+                    letterSpacing={fontS22L13S2W3.letterSpacing}
+                    fontWeight={fontS22L13S2W3.weight}
+                    lineHeight={[fontS22L13S2W3.lineHeight, fontS22L13S2W3.lineHeight, fontS22L13S2W3.lineHeight]}
+                    color={theme.textPrimary}
+                    wordBreak="break-word"
+                    w={['100%', '100%', 'max-content']}
+                  >
+                    {e.id}
+                  </Text>
+                  <Flex flexDir="row" w="100%" mt={['10px', '10px', '10px']}>
+                  <Text
+                    fontSize={[fontS18L15S2W3.sizeMobile, fontS18L15S2W3.sizeMobile, fontS18L15S2W3.size]}
+                    letterSpacing={fontS18L15S2W3.letterSpacing}
+                    fontWeight={fontS18L15S2W3.weight}
+                    lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
+                    color={index % 2 === 0 ? theme.secondary : theme.primary}
+                    alignSelf={['flex-start']}
+                    flex="1"
+                  >
+                  {e.type}
+                </Text>
+                <Flex justify="flex-end" align="flex-end" flexDir={['column', 'column', 'row']}>
+                <Flex alignSelf={['flex-start', 'flex-start', 'flex-end']} mt={['20px', '20px', '0px']}>
+                  <AverageDoodsLink fontSize="15px" letterSpacing="2.1px" text="< OPEN SECTION />" onClick={() => openProjectURL(e.url)} />
+                </Flex>
+              </Flex>
+                  </Flex>
+                </Flex>
+              </Flex>
+            </Flex>
+          </Flex>
+        ))}
+      </Flex>
+    </Flex>
+  )
+}
+
+// SECTION Export & Prop types
+HomePersonalList.propTypes = {
+  theme: PropTypes.object,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  projects: PropTypes.array,
+  height: PropTypes.array,
+}
+export default HomePersonalList

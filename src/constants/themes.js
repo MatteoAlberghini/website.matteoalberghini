@@ -9,7 +9,7 @@ export const themes = {
     textPrimary: '#FFF',
     textSecondary: '#999999',
     primary: '#7AFDD6',
-    secondary: '#8447FF',
+    secondary: '#FFA400',
     error: '#DB2763',
     possibleColors: [
       {
@@ -31,7 +31,7 @@ export const themes = {
     textPrimary: '#1E1E1E',
     textSecondary: '#999999',
     primary: '#7AFDD6',
-    secondary: '#8447FF',
+    secondary: '#DB2763',
     error: '#DB2763',
     possibleColors: [
       {

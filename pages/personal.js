@@ -21,7 +21,8 @@ import ApplicationContext from '../src/contexts/ApplicationContext'
 import Header from '../src/components/macro/Header'
 import Footer from '../src/components/macro/Footer'
 import ScriptsNRepositories from '../src/components/ui/ScriptsNRepositories'
-import { projectsScripts } from '../src/constants/projects'
+import { personalSection } from '../src/constants/projects'
+import HomePersonalList from '../src/components/ui/personal/HomePersonalList'
 
 // SECTION Main class
 class Personal extends Component {
@@ -216,8 +217,8 @@ class Personal extends Component {
         <Flex minH="100vh" alignSelf="center" w="100%" justify="flex-start" flexDir="column" paddingTop={['250px', '250px', '250px', '0']}>
 
           {/* Scripts & Repositories */}
-          <ScriptsNRepositories
-            projects={projectsScripts}
+          <HomePersonalList
+            projects={personalSection}
             theme={theme}
             setRef={(ref) => (this.scriptsRef = ref)}
             title={'~ Have fun looking around ~'}
