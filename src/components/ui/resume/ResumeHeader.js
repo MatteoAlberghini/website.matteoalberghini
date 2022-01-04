@@ -39,7 +39,7 @@ export const ResumeHeader = ({ theme = themes.standard }) => {
           color={theme.textSecondary}
           text="DOWNLOAD MY CV"
           reverted={true}
-          onClick={() => openURL('https://media.publit.io/file/AvdoodsWebsite/Files/Matteo-Alberghini-Resume-EN.pdf')}
+          onClick={() => openURL('https://media.publit.io/file/AvdoodsWebsite/Files/Matteo-Alberghini-Resume-EN-0.pdf')}
         />
         <Text color={theme.textPrimary} mt={['10px']} fontSize={['34px']} letterSpacing="2px">
           Matteo Alberghini
@@ -56,7 +56,7 @@ export const ResumeHeader = ({ theme = themes.standard }) => {
           lineHeight={[fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight, fontS18L15S2W3.lineHeight]}
           color={theme.textPrimary}
         >
-          www.averagedoods.dev
+          www.matteoalberghini.com
         </Text>
         <Text
           fontSize={[fontS17L15S2W3.size]}

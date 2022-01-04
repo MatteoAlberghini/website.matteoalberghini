@@ -195,7 +195,7 @@ class Personal extends Component {
             content="I'm a developer mainly focused on web & mobile development, with game development knowledge. Writer, book worm and tech enthusiast. Currently looking for jobs outside of Italy, my home country."
           />
           <meta name="og:image" content="https://media.publit.io/file/AvdoodsWebsite/MetaTags/preview_website.png" />
-          <meta name="og:url" content="https://averagedoods.dev" />
+          <meta name="og:url" content="https://www.matteoalberghini.com" />
           <meta name="og:site_name" content="Matteo Alberghini -- Software Developer" />
           <meta name="og:locale" content="en_US" />
           <meta name="og:type" content="website" />

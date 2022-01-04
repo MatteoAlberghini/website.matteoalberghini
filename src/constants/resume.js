@@ -18,8 +18,8 @@ export const experience = [
     ],
   },
   {
-    date: '2019 - now',
-    company: 'freelancing (average doods)',
+    date: '2019 - 2021',
+    company: 'freelancing',
     title: 'fullstack developer',
     details: [
       {
@@ -46,7 +46,7 @@ export const experience = [
     ],
   },
   {
-    date: '2020 - now',
+    date: '2020 - 2021',
     company: 'GENUINO BLOCKCHAINS TECHNOLOGY',
     title: 'MOBILE & FRONTEND DEVELOPER',
     details: [
@@ -64,6 +64,25 @@ export const experience = [
       },
       {
         label: '>>  Worked on Ethereum smart contracts using Solidity.',
+      },
+    ],
+  },
+  {
+    date: '2021 - now',
+    company: 'THE MOBILE COMPANY',
+    title: 'NATIVE MOBILE DEVELOPER',
+    details: [
+      {
+        label: '>>  Worked on heavily used native mobile apps (Such as Waterkaarten).',
+      },
+      {
+        label: '>>  Agile environment with multiple teams, doing cross work if asked.',
+      },
+      {
+        label: '>>  Setup a better Git workflow and projects structure in the native apps.',
+      },
+      {
+        label: '>> Published apps & checked analytics and crashlytics with firebase and google analytics.',
       },
     ],
   },
@@ -155,9 +174,6 @@ export const interests = [
       {
         label: '>>  Book worm',
       },
-      {
-        label: '>>  Absolute nerd',
-      }
     ],
   }
 ]

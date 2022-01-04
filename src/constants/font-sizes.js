@@ -7,7 +7,7 @@
 export const fontS65H13S2W3 = {
   size: '65px',
   sizeMobile: '28px',
-  lineHeight: '1.3',
+  lineHeight: '1.45',
   letterSpacing: '2px',
   weight: '300',
 }

@@ -133,6 +133,7 @@ function PersonalProjects({
                   text="< VIEW PROJECT />"
                   mt={['28px']}
                   alignSelf="flex-start"
+                  onClick={() => window.open(e.url)}
                 />
               </Flex>
             </Flex>

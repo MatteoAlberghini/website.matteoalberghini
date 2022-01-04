@@ -29,7 +29,7 @@ export const ResumeAbout = ({ theme = themes.standard, setRef = () => {} }) => {
           mt="10px"
         >
           {
-            "I've been working in tech for 3+ years, both as a freelancer and as an employee. I mainly worked on mobile apps & websites but I've been doing videogame development as an hobby since I was 16. I've gathered knowledge of many different frameworks and technologies since I started programming. I'm looking for a work opportunity in the European zone, outside my home country of Italy."
+            "I've been working in tech since 2018, both as a freelancer and as an employee. I mainly worked on mobile apps & websites but I've been doing videogames development as an hobby since I was 16. I've gathered knowledge of many different frameworks and technologies since I started programming. I'm looking for work opportunities in React and React Native. Currently working for the mobile company as native mobile developer."
           }
         </Text>
       </Flex>

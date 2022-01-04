@@ -100,12 +100,14 @@ function Header({
         <Desktop>
           <Flex flexDir="row" alignSelf="center" justify="center" mt="6px">
             <MotionFlex>
+            {/*}
               <NavigationLink color={theme.textPrimary} text="< Home />" onClick={homeFunction} />
+              {*/}
               <NavigationLink color={theme.textPrimary} text="< Projects />" ms={['24px']} onClick={projectsFunction} />
               <NavigationLink color={theme.textPrimary} text="< Resume />" ms={['24px']} onClick={resumeFunction} />
               <NavigationLink color={theme.textPrimary} text="< Contacts />" ms={['24px']} onClick={contactFunction} />
-              <NavigationLink color={theme.textPrimary} text="< Personal />" ms={['24px']} onClick={personalFunction} />
               {/*}
+              <NavigationLink color={theme.textPrimary} text="< Personal />" ms={['24px']} onClick={personalFunction} />
               <NavigationLink color={theme.textPrimary} text="< Uncut & Raw />" ms={['24px']} />
               <NavigationLink color={theme.textPrimary} text="< Personal />" ms={['24px']} />
               {*/}
@@ -116,6 +118,7 @@ function Header({
           </Flex>
         </Desktop>
         <TabletAndMobile>
+          <Flex flexDir={'column'} maxH={'100vh'} height={'100%'}>
           <CodeButton
             fontSize={['14px']}
             w={['137px']}
@@ -147,8 +150,9 @@ function Header({
                     </Flex>
                   </Flex>
                   <AnimatedLogo animated={false} width="55" height="55" mt={['10px']} color={theme.textColor} />
-                  <Flex flexDir="column" flex="1" mt="36px">
+                  <Flex flexDir="column" mt="24px">
                     <MotionFlex flexDir="column" w="100%" justify="flex.start">
+                      {/*}
                       <NavigationLink
                         color={theme.textPrimary}
                         text="< Home />"
@@ -157,6 +161,7 @@ function Header({
                           homeFunction()
                         }}
                       />
+                      {*/}
                       <NavigationLink
                         color={theme.textPrimary}
                         text="< Projects />"
@@ -193,7 +198,7 @@ function Header({
             <ThemeChangeButton theme={theme} ms={['34px']} onClick={openThemeModal} />
             */}
                   </Flex>
-                  <Flex flexDir="row" w="100%" alignSelf="center" justify="center" align="center" alignItems="center">
+                  <Flex flexDir="row" w="100%" alignSelf="center" marginTop={'64px'}>
                     <Text
                       fontSize={['16px', '16px', fontS17L15S2W3.size]}
                       letterSpacing={fontS18L15S2W3.letterSpacing}
@@ -294,6 +299,7 @@ function Header({
               </ModalBody>
             </ModalContent>
           </Modal>
+          </Flex>
         </TabletAndMobile>
       </Flex>
     </>

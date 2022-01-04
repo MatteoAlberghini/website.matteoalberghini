@@ -51,6 +51,10 @@ export const projectMobile = [
     id: 'Spylog',
     url: 'https://chimar.eu/en/spylog-en/',
   },
+  {
+    id: 'Waterkaarten',
+    url: 'https://waterkaarten.app/',
+  }
 ]
 
 // ANCHOR Miscellaneous
@@ -65,7 +69,7 @@ export const projectsMiscellaneous = [
   },
   {
     id: 'Recipes Searcher App',
-    url: 'https://github.com/MatteoAlberghini/SpaceGameWithPythonArcade',
+    url: 'https://github.com/MatteoAlberghini/RNRecipes/tree/master',
     image: '/images/recipes-full.png',
     tags: ['React Native', 'Recipes Puppy APIs'],
     description:
